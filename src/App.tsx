@@ -1,13 +1,20 @@
-import {Button} from "@nextui-org/react";
+import {Routes, Route} from "react-router-dom";
+import PageStart from "./pages/PageStart.tsx";
+import PageGenre from "./pages/PageGenre.tsx";
+import PageMovie from "./pages/PageMovie.tsx";
+import PageActor from "./pages/PageActor.tsx";
+import PageSearch from "./pages/PageSearch.tsx";
 
 function App() {
 
   return (
-     <div>
-       <Button color="primary">
-         Button
-       </Button>
-     </div>
+      <Routes>
+          <Route path="/" element={<PageStart />} />
+          <Route path="/movies/:genre" element={<PageGenre />} />
+          <Route path="/movie/:id" element={<PageMovie />} />
+          <Route path="/actor/:id" element={<PageActor />} />
+          <Route path="/search/" element={<PageSearch />} />
+      </Routes>
   )
 }
 
