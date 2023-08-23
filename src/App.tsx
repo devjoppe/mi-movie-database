@@ -14,7 +14,7 @@ import GlobalLoading from "./components/GlobalLoading/GlobalLoading.tsx";
 function App() {
 
   return (
-      <div className="container lg pl-5 pr-5">
+      <div className="container lg">
           <Header />
           <GlobalLoading />
           <Routes>

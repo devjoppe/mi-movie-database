@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
                 <NextUIProvider>
-                    <main className="dark text-foreground bg-background">
+                    <main className="dark text-foreground bg-background pl-4 pr-4">
                         <App />
                     </main>
                 </NextUIProvider>
