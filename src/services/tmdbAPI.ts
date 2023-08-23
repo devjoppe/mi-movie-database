@@ -19,7 +19,7 @@ const fetch = async<T>(endpoint: string) => {
     return response.data
 }
 
-// Testing the API request by fetching all genre
+// Fetching all Genres
 export const fetchGenre = () => {
     return fetch('/genre/movie/list')
 }
