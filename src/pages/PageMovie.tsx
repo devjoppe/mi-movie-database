@@ -1,7 +1,7 @@
 const PageMovie = () => {
     return (
         <div>
-            Search Page
+            Movie page
         </div>
     )
 }
