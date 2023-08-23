@@ -1,7 +1,13 @@
+import {Button} from "@nextui-org/react";
+
 function App() {
 
   return (
-   <div>APPEN</div>
+     <div>
+       <Button color="primary">
+         Button
+       </Button>
+     </div>
   )
 }
 
