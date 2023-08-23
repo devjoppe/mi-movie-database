@@ -11,7 +11,7 @@ import Footer from "./components/Footer/Footer.tsx";
 function App() {
 
   return (
-      <div className="container lg">
+      <div className="container lg pl-5 pr-5">
           <Header />
           <Routes>
               <Route path="/" element={<PageStart />} />
