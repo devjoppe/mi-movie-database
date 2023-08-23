@@ -4,15 +4,26 @@ import {BrowserRouter} from "react-router-dom";
 import App from './App.tsx'
 import {NextUIProvider} from "@nextui-org/react";
 import './assets/styles/index.css'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchOnWindowFocus: false
+        }
+    }
+})
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <BrowserRouter>
-            <NextUIProvider>
-                <main className="dark text-foreground bg-background">
-                    <App />
-                </main>
-            </NextUIProvider>
-        </BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+            <BrowserRouter>
+                <NextUIProvider>
+                    <main className="dark text-foreground bg-background">
+                        <App />
+                    </main>
+                </NextUIProvider>
+            </BrowserRouter>
+        </QueryClientProvider>
     </React.StrictMode>
 )
