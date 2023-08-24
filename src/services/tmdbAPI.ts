@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import {genresInt} from "../interfaces/genres.interface.ts";
+import {browseAllMoviesInt} from "../interfaces/movies.interface.ts";
 
 const API_URL = 'https://api.themoviedb.org/3'
 const APIKEY = import.meta.env.VITE_API_KEY
@@ -27,5 +28,5 @@ export const fetchGenre = () => {
 }
 
 export const fetchBrowseMovies = (page: string, category: string) => {
-    return fetch(`/movie/${category}?page=${page}&region=us`)
+    return fetch<browseAllMoviesInt>(`/movie/${category}?page=${page}&region=us`)
 }
