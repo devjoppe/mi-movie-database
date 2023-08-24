@@ -2,6 +2,7 @@ import React from "react";
 import {useFetchBrowseMovies} from "../../hooks/useFetchBrowseMovies.ts";
 import {Card, Image} from "@nextui-org/react";
 import FetchError from "../Error/FetchError.tsx";
+import {useNavigate} from "react-router-dom";
 
 interface IProp {
     title: string,
@@ -14,7 +15,7 @@ const BrowseMovies:React.FC<IProp> = ({title, categoryParam}) => {
     const allMovies = useFetchBrowseMovies("1", categoryParam)
     const displayMovies = allMovies.data?.results.slice(0,10)
 
-    console.log(allMovies.data?.results)
+    const navigate = useNavigate()
 
     return(
         <div className="relative">
@@ -28,6 +29,7 @@ const BrowseMovies:React.FC<IProp> = ({title, categoryParam}) => {
                             className="object-cover rounded-md"
                             src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                             width={150}
+                            onClick={() => navigate("/movie/"+movie.id)}
                         />
                     </Card>
                 ))}
