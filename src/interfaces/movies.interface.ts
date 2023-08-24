@@ -8,7 +8,7 @@ export interface browseMovieInt {
 }
 
 export interface browseAllMoviesInt {
-    result: browseMovieInt[],
+    results: browseMovieInt[],
     isError: boolean,
     isSuccess: boolean
 }

@@ -14,6 +14,8 @@ import Breadcrumb from "./components/Breadcrumb/Breadcrumb.tsx";
 
 function App() {
 
+    // Todo: Set a global Loading spinner, not just a fetching one. Will take some time to load the app.
+
   return (
       <div className="container lg">
           <Header />

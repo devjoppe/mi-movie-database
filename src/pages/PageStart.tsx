@@ -8,7 +8,7 @@ const PageStart = () => {
    return (
        <>
            <BrowseGenres title={"Browse by genre"}/>
-           <BrowseMovies title={"Recent movies"} categoryParam={"now_playing"} />
+           <BrowseMovies title={"Most recent movies"} categoryParam={"now_playing"} />
        </>
    )
 }
