@@ -1,13 +1,15 @@
 import BrowseGenres from "../components/Sections/BrowseGenres.tsx";
+import BrowseMovies from "../components/Sections/BrowseMovies.tsx";
 
 const PageStart = () => {
 
 
 
    return (
-       <div>
+       <>
            <BrowseGenres title={"Browse by genre"}/>
-       </div>
+           <BrowseMovies title={"Recent movies"} categoryParam={"now_playing"} />
+       </>
    )
 }
 

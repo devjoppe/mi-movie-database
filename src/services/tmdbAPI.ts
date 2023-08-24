@@ -25,3 +25,7 @@ const fetch = async<T>(endpoint: string) => {
 export const fetchGenre = () => {
     return fetch<genresInt>('/genre/movie/list')
 }
+
+export const fetchBrowseMovies = (page: string, category: string) => {
+    return fetch(`/movie/${category}?page=${page}&region=us`)
+}
