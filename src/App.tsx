@@ -10,12 +10,14 @@ import Footer from "./components/Footer/Footer.tsx";
 
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import GlobalLoading from "./components/GlobalLoading/GlobalLoading.tsx";
+import Breadcrumb from "./components/Breadcrumb/Breadcrumb.tsx";
 
 function App() {
 
   return (
       <div className="container lg">
           <Header />
+          <Breadcrumb />
           <GlobalLoading />
           <Routes>
               <Route path="/" element={<PageStart />} />
