@@ -27,6 +27,12 @@ export const fetchGenre = () => {
     return fetch<genresInt>('/genre/movie/list')
 }
 
+// Fetching list of movies based on category (recent, top-rated, popular)
 export const fetchBrowseMovies = (page: string, category: string) => {
     return fetch<browseAllMoviesInt>(`/movie/${category}?page=${page}&region=us`)
+}
+
+// Fetching detail data about movie and actor
+export const fetchMovieActor = (id: string, type: string) => {
+    return fetch(`/${type}/${id}`)
 }

@@ -1,10 +1,13 @@
 import {useParams} from "react-router-dom";
+import {useFetchMovieActor} from "../hooks/useFetchMovieActor.ts";
 
 const PageMovie = () => {
 
     const { id } = useParams()
 
-    console.log("What ID: ", id)
+    const movie = id ? useFetchMovieActor(id, "movie") : null
+
+    console.log("What movie: ", movie)
 
     return (
         <>
