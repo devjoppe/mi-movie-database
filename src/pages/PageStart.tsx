@@ -3,12 +3,12 @@ import BrowseMovies from "../components/Sections/BrowseMovies.tsx";
 
 const PageStart = () => {
 
-
-
    return (
        <>
            <BrowseGenres title={"Browse by genre"}/>
-           <BrowseMovies title={"Most recent movies"} categoryParam={"now_playing"} />
+           <BrowseMovies title={"Most recent"} categoryParam={"now_playing"} />
+           <BrowseMovies title={"Top rated"} categoryParam={"top_rated"} />
+           <BrowseMovies title={"Most popular"} categoryParam={"popular"} />
        </>
    )
 }
