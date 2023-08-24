@@ -17,19 +17,21 @@ const BrowseMovies:React.FC<IProp> = ({title, categoryParam}) => {
     console.log(allMovies.data?.results)
 
     return(
-        <div>
+        <div className="relative">
             { allMovies.isError ? <FetchError /> : null }
             <h2>{title}</h2>
-            { allMovies.isSuccess && allMovies &&  displayMovies!.map(movie => (
-                <Card key={movie.id}>
-                    <Image
-                        alt={`Image background for ${movie.title}`}
-                        className="object-cover rounded-md"
-                        src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                        width={150}
-                    />
-                </Card>
-            ))}
+            <div className="flex flex-row overflow-x-auto gap-x-6">
+                { allMovies.isSuccess && allMovies &&  displayMovies!.map(movie => (
+                    <Card key={movie.id} className="w-36 flex-shrink-0">
+                        <Image
+                            alt={`Image background for ${movie.title}`}
+                            className="object-cover rounded-md"
+                            src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                            width={150}
+                        />
+                    </Card>
+                ))}
+            </div>
         </div>
     )
 }
