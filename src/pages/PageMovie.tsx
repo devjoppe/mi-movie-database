@@ -2,6 +2,8 @@ import {useParams} from "react-router-dom";
 import {useFetchMovieActor} from "../hooks/useFetchMovieActor.ts";
 import {Image} from "@nextui-org/react";
 import BrowseMovies from "../components/Sections/BrowseMovies.tsx";
+import FetchError from "../components/Error/FetchError.tsx";
+import BrowseActors from "../components/Sections/BrowseActors.tsx";
 
 const PageMovie = () => {
 
@@ -14,7 +16,8 @@ const PageMovie = () => {
 
     return (
         <>
-            {movieQuery && movieQuery.isSuccess && (
+            { movieQuery?.isError ? <FetchError /> : null }
+            { movieQuery && movieQuery.isSuccess && (
                 <div>
                     <div>
                         <div>
@@ -43,10 +46,9 @@ const PageMovie = () => {
                         {movieQuery.data.overview}
                     </div>
                     <div>
-                        <h3>ACTORS AND DIRECTORS</h3>
+                        <BrowseActors title={"Actors"} id={id ? id.toString() : null} />
                     </div>
                     <div>
-                        <h3>RELATED MOVIES</h3>
                         <BrowseMovies title={"Related movies"} identifier={id ? id.toString() : null} option={"similar"} />
                     </div>
                 </div>

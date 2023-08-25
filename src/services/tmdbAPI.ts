@@ -33,6 +33,11 @@ export const fetchBrowseMovies = (page: string, identifier: string | null, optio
     return fetch<browseAllMoviesInt>(`/movie/${identifier}/${option != null ? option : "" }?page=${page}&region=us`)
 }
 
+// Fetching all related actors to a movie
+export const fetchRelatedActor = (id: string | null) => {
+    return fetch(`/movie/${id != null ? id : ""}/credits`)
+}
+
 // Fetching DETAIL DATA about movie and actor
 export const fetchMovieActor = (id: string, type: string) => {
     return fetch<movieInt>(`/${type}/${id}`)
