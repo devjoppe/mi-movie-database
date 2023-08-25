@@ -1,6 +1,7 @@
 import {useParams} from "react-router-dom";
 import {useFetchMovieActor} from "../hooks/useFetchMovieActor.ts";
 import {Image} from "@nextui-org/react";
+import BrowseMovies from "../components/Sections/BrowseMovies.tsx";
 
 const PageMovie = () => {
 
@@ -8,6 +9,8 @@ const PageMovie = () => {
     const movieQuery = id ? useFetchMovieActor(id, "movie") : null
 
     console.log("movie data: ", movieQuery!.data)
+
+    // TODO: Use the backdrop image for the design
 
     return (
         <>
@@ -25,20 +28,26 @@ const PageMovie = () => {
                             <h2>{movieQuery.data.title}</h2>
                             <span>{movieQuery.data.tagline}</span>
                             <div><span>{movieQuery.data.release_date}</span></div>
-                            <div><span>{movieQuery.data.runtime}</span></div>
+                            <div><span>{movieQuery.data.runtime} min</span></div>
                         </div>
                         <div>
-                            Get the genres - Get the data from the cache?
                             { movieQuery.data.genres.map(movieGenre => (
                                 <span key={movieGenre.id}>{movieGenre.name}</span>
                             ))}
                         </div>
+                        <div>
+                            <a href={`https://www.imdb.com/title/${movieQuery.data.imdb_id}/`} aria-label={`Visit ${movieQuery.data.title} on IMDB`} target="_blank">Visit {movieQuery.data.title} on IMDB</a>
+                        </div>
                     </div>
                     <div>
-                        ACTORS/Credits
+                        {movieQuery.data.overview}
                     </div>
                     <div>
-                        <div>Related movies</div>
+                        <h3>ACTORS AND DIRECTORS</h3>
+                    </div>
+                    <div>
+                        <h3>RELATED MOVIES</h3>
+                        <BrowseMovies title={"Related movies"} identifier={id ? id.toString() : null} option={"similar"} />
                     </div>
                 </div>
             )}

@@ -6,13 +6,14 @@ import {useNavigate} from "react-router-dom";
 
 interface IProp {
     title: string,
-    categoryParam: string
+    identifier: string | null,
+    option: string | null
 }
 
-const BrowseMovies:React.FC<IProp> = ({title, categoryParam}) => {
+const BrowseMovies:React.FC<IProp> = ({title, identifier, option}) => {
 
     // For the moment I will only use Page 1. If I want to paginate, then use a variable.
-    const allMovies = useFetchBrowseMovies("1", categoryParam)
+    const allMovies = useFetchBrowseMovies("1", identifier, option)
     const displayMovies = allMovies.data?.results.slice(0,10)
 
     const navigate = useNavigate()
