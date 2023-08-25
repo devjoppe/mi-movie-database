@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {useFetchGenre} from "../hooks/useFetchGenre.ts";
 import {Button} from "@nextui-org/react";
 import FetchError from "../components/Error/FetchError.tsx";
+import GridButtons from "../components/Buttons/GridButtons.tsx";
 
 interface IProp {
     title: string
@@ -18,17 +19,11 @@ const GridGenres:React.FC<IProp> = ({title}) => {
         setShowAllGenres(!showAllGenres)
     }
 
-    console.log("reLoad?")
-
     return(
         <div>
             { genres.isError ? <FetchError /> : null }
             <h2>{title}</h2>
-            <div className="grid gap-2 grid-cols-2 grid-rows-2">
-                { genres.isSuccess && displayedGenres && displayedGenres.map((genre) => (
-                    <Button size="sm" key={genre.id}>{genre.name}</Button>
-                ))}
-            </div>
+            { genres.isSuccess && <GridButtons data={displayedGenres}/> }
             <Button onClick={toggleShowGenres}>{showAllGenres ? "Hide genres" : "Show all genres"}</Button>
         </div>
     )
