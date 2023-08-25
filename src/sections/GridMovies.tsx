@@ -1,7 +1,7 @@
 import React from "react";
-import {useFetchBrowseMovies} from "../../hooks/useFetchBrowseMovies.ts";
+import {useFetchBrowseMovies} from "../hooks/useFetchBrowseMovies.ts";
 import {Card, Image} from "@nextui-org/react";
-import FetchError from "../Error/FetchError.tsx";
+import fetchError from "../components/Error/FetchError.tsx";
 import {useNavigate} from "react-router-dom";
 
 interface IProp {
@@ -10,10 +10,10 @@ interface IProp {
     option: string | null
 }
 
-const BrowseMovies:React.FC<IProp> = ({title, identifier, option}) => {
+const GridMovies:React.FC<IProp> = ({title, identifier, option}) => {
 
     // For the moment I will only use Page 1. If I want to paginate, then use a variable.
-    const allMovies = useFetchBrowseMovies("1", identifier, option)
+    const allMovies =  useFetchBrowseMovies("1", identifier, option)
     const displayMovies = allMovies.data?.results.slice(0,10)
 
     const navigate = useNavigate()
@@ -39,4 +39,4 @@ const BrowseMovies:React.FC<IProp> = ({title, identifier, option}) => {
     )
 }
 
-export default BrowseMovies
+export default GridMovies

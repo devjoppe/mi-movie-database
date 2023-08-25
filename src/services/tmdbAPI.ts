@@ -39,6 +39,11 @@ export const fetchRelatedActor = (id: string | null) => {
     return fetch<allRelatedActorsInt>(`/movie/${id != null ? id : ""}/credits`)
 }
 
+// Fetching all popular movies related to a genre
+export const fetchGenreMovies = (id: string) => {
+    return fetch(`/discover/movie?include_adult=false&page=1&sort_by=vote_count.desc&with_genres=${id}`)
+}
+
 // Fetching DETAIL DATA about movie and actor
 export const fetchMovieActor = (id: string, type: string) => {
     return fetch<movieInt>(`/${type}/${id}`)

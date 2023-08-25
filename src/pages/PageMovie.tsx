@@ -1,9 +1,9 @@
 import {useParams} from "react-router-dom";
-import {useFetchMovieActor} from "../hooks/useFetchMovieActor.ts";
 import {Image} from "@nextui-org/react";
-import BrowseMovies from "../components/Sections/BrowseMovies.tsx";
+import GridMovies from "../sections/GridMovies.tsx";
 import FetchError from "../components/Error/FetchError.tsx";
-import BrowseActors from "../components/Sections/BrowseActors.tsx";
+import GridActors from "../sections/GridActors.tsx";
+import {useFetchMovieActor} from "../hooks/useFetchMovieActor.ts";
 
 const PageMovie = () => {
 
@@ -46,10 +46,10 @@ const PageMovie = () => {
                         {movieQuery.data.overview}
                     </div>
                     <div>
-                        <BrowseActors title={"Actors"} id={id ? id.toString() : null} />
+                        <GridActors title={"Actors"} id={id ? id.toString() : null} />
                     </div>
                     <div>
-                        <BrowseMovies title={"Related movies"} identifier={id ? id.toString() : null} option={"similar"} />
+                        <GridMovies title={"Related movies"} identifier={id ? id.toString() : null} option={"similar"} />
                     </div>
                 </div>
             )}

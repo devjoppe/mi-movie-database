@@ -1,15 +1,14 @@
 import React from "react";
-import {useFetchRelatedActors} from "../../hooks/useFetchRelatedActors.ts";
+import {useFetchRelatedActors} from "../hooks/useFetchRelatedActors.ts";
 import {Avatar} from "@nextui-org/react";
 import {FaCamera} from 'react-icons/fa'
-
 
 interface IProp {
     id: string | null
     title: string
 }
 
-const BrowseActors:React.FC<IProp> = ({id, title}) => {
+const GridActors:React.FC<IProp> = ({id, title}) => {
 
     const allActors = useFetchRelatedActors(id)
     const displayActors = allActors.data?.cast.slice(0,15)
@@ -38,4 +37,4 @@ const BrowseActors:React.FC<IProp> = ({id, title}) => {
     )
 }
 
-export default BrowseActors
+export default GridActors
