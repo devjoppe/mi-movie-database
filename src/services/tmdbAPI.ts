@@ -3,6 +3,7 @@ import axios from "axios";
 import {genresInt} from "../interfaces/genres.interface.ts";
 import {browseAllMoviesInt} from "../interfaces/movies.interface.ts";
 import {movieInt} from "../interfaces/movie.interface.ts";
+import {allRelatedActorsInt} from "../interfaces/actors.interface.ts";
 
 const API_URL = 'https://api.themoviedb.org/3'
 const APIKEY = import.meta.env.VITE_API_KEY
@@ -35,7 +36,7 @@ export const fetchBrowseMovies = (page: string, identifier: string | null, optio
 
 // Fetching all related actors to a movie
 export const fetchRelatedActor = (id: string | null) => {
-    return fetch(`/movie/${id != null ? id : ""}/credits`)
+    return fetch<allRelatedActorsInt>(`/movie/${id != null ? id : ""}/credits`)
 }
 
 // Fetching DETAIL DATA about movie and actor
