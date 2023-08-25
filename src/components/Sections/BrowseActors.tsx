@@ -1,5 +1,7 @@
 import React from "react";
 import {useFetchRelatedActors} from "../../hooks/useFetchRelatedActors.ts";
+import {Avatar} from "@nextui-org/react";
+
 
 interface IProp {
     id: string | null
