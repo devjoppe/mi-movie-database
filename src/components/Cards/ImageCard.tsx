@@ -1,11 +1,14 @@
 import React from "react";
 import {Card, Image} from "@nextui-org/react";
+import {useNavigate} from "react-router-dom";
 
 interface IProp {
     data: T
 }
 
 const ImageCard:React.FC<T> = ({data}) => {
+
+    const navigate = useNavigate()
 
     return(
         <Card className="w-36 flex-shrink-0">
