@@ -10,7 +10,7 @@ const ListMovies:React.FC<IProp> = ({data}) => {
     return(
         <div>
             {data && data.map(movie => (
-                <ImageCard data={movie} />
+                <ImageCard key={movie.title} data={movie} />
             ))}
         </div>
     )
