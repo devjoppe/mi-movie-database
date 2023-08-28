@@ -9,6 +9,8 @@ export interface browseMovieInt {
 
 export interface browseAllMoviesInt {
     results: browseMovieInt[],
+    page?: number
+    total_pages?: number,
     isError: boolean,
     isSuccess: boolean
 }
