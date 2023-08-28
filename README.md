@@ -17,3 +17,20 @@ Section name should reflect what kind of layout that is being used:
 ``<GridActors>``
 ``<MenuGenres>``
 ``<ListMovies>``
+
+## Components
+### Description
+**Components handle:**
+* Its own Interface
+### GridButtons
+#### Description
+GridButtons is will use 2 properties, **id**  and **title/name**.
+This component is designed for genre buttons and contains a grid system that will display the buttons in a certain order.
+
+## Interface
+The folder Interface will contain all the interfaces for the main data collected from the API.
+
+``Actors``
+``Genres``
+``Movie``
+``Movies``
