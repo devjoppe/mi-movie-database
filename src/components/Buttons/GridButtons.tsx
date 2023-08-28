@@ -18,7 +18,7 @@ const GridButtons:React.FC<IProp> = ({data}) => {
     return(
         <div className="grid gap-2 grid-cols-2 grid-rows-2">
             { data && data.map((data) => (
-                <Button size="sm" key={data.id} onClick={() => navigate(`/movies/${data.name}?id=${data.id}`)}>{data.name}</Button>
+                <Button size="sm" key={data.id} onClick={() => navigate(`/movies/${data.name}?id=${data.id}&page=1`)}>{data.name}</Button>
             ))}
         </div>
     )

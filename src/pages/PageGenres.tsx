@@ -2,32 +2,31 @@ import {useParams, useSearchParams} from "react-router-dom";
 import {useFetchGenreMovies} from "../hooks/useFetchGenreMovies.ts";
 import ListMovies from "../sections/ListMovies.tsx";
 import ListPagination from "../components/Pagination/ListPagination.tsx";
-import {useEffect, useState} from "react";
+import {useState, useEffect} from "react";
 
 const PageGenres = () => {
 
+    // Params
     const { genres } = useParams()
     const [ getPageParam] = useSearchParams()
-    const idParam = getPageParam.get('id')
-    const movieByGenreQuery = genres ? useFetchGenreMovies(idParam!.toString()) : null
+    const setIdParam = getPageParam.get('id')
+    const setPageParam = getPageParam.get('page')
 
-    const [pageNumber, setPageNumber] = useState(1)
+    const movieByGenreQuery = useFetchGenreMovies(setIdParam!, setPageParam!)
+
     const [totalPageNumber, setTotalPageNumber] = useState(0)
 
-    console.log("Genre ID: ", genres)
-    console.log("Page number: ", pageNumber)
+    /* console.log("Genre ID: ", setIdParam)
+    console.log("Page param: ", setPageParam)
+    console.log("Total of pages: ", totalPageNumber)
+    console.log("Listed movies: ", movieByGenreQuery) */
 
     useEffect(() => {
         if (movieByGenreQuery?.data) {
-            const { page, total_pages } = movieByGenreQuery.data;
-            setPageNumber(page!);
+            const { total_pages } = movieByGenreQuery?.data;
             setTotalPageNumber(total_pages!);
         }
-    }, [movieByGenreQuery]);
-
-    const changePage = () => {
-        console.log("Clicking")
-    }
+    }, [movieByGenreQuery])
 
     return (
         <div>
@@ -38,7 +37,7 @@ const PageGenres = () => {
                 }
             </div>
             <div>
-                <ListPagination page={pageNumber} total_pages={totalPageNumber} handleClick={changePage}/>
+                <ListPagination page={Number(setPageParam)!} total_pages={totalPageNumber} id_param={setIdParam!} genre_param={genres!} />
             </div>
         </div>
 
