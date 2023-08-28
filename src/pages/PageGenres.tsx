@@ -3,6 +3,8 @@ import {useFetchGenreMovies} from "../hooks/useFetchGenreMovies.ts";
 import ListMovies from "../sections/ListMovies.tsx";
 import ListPagination from "../components/Pagination/ListPagination.tsx";
 import {useState, useEffect} from "react";
+import {browseAllMoviesInt} from "../interfaces/movies.interface.ts";
+import FetchError from "../components/Error/FetchError.tsx";
 
 const PageGenres = () => {
 
@@ -14,6 +16,7 @@ const PageGenres = () => {
 
     const movieByGenreQuery = useFetchGenreMovies(setIdParam!, setPageParam!)
 
+    const [movieByGenre, setMovieByGenre] = useState<browseAllMoviesInt | null>(null)
     const [totalPageNumber, setTotalPageNumber] = useState(0)
 
     /* console.log("Genre ID: ", setIdParam)
@@ -22,18 +25,22 @@ const PageGenres = () => {
     console.log("Listed movies: ", movieByGenreQuery) */
 
     useEffect(() => {
-        if (movieByGenreQuery?.data) {
+        if (movieByGenreQuery != null && movieByGenreQuery?.data) {
             const { total_pages } = movieByGenreQuery?.data;
             setTotalPageNumber(total_pages!);
+            setMovieByGenre(movieByGenreQuery.data)
         }
     }, [movieByGenreQuery])
+
+    console.log(movieByGenre)
 
     return (
         <div>
             <h2>{genres}</h2>
             <div>
-                {movieByGenreQuery?.isSuccess &&
-                    <ListMovies data={movieByGenreQuery?.data.results}/>
+                { movieByGenre?.isError ? <FetchError /> : null }
+                { movieByGenreQuery.isSuccess && movieByGenre &&
+                    <ListMovies data={movieByGenre!.results}/>
                 }
             </div>
             <div className="sticky bottom-0 z-10 bg-background w-full p-4 flex justify-center">
