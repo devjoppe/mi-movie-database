@@ -5,6 +5,6 @@ export interface genreInt {
 
 export interface genresInt {
     genres: genreInt[]
-    isError: boolean
-    isSuccess: boolean
+    isError?: boolean // Todo -> REMOVE
+    isSuccess?: boolean // Todo -> REMOVE
 }

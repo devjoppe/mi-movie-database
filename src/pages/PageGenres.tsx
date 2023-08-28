@@ -7,8 +7,8 @@ const PageGenres = () => {
     const { genres } = useParams()
     const movieByGenreQuery = genres ? useFetchGenreMovies(genres.toString()) : null
 
-    console.log("Genre ID: ", genres)
-    console.log("Movie by genre: ", movieByGenreQuery)
+    // console.log("Genre ID: ", genres)
+    // console.log("Movie by genre: ", movieByGenreQuery)
 
     return (
         <div>
