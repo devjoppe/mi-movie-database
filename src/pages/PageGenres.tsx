@@ -1,20 +1,24 @@
-import {useParams} from "react-router-dom";
+import {useParams, useSearchParams} from "react-router-dom";
 import {useFetchGenreMovies} from "../hooks/useFetchGenreMovies.ts";
 import ListMovies from "../sections/ListMovies.tsx";
 
 const PageGenres = () => {
 
     const { genres } = useParams()
-    const movieByGenreQuery = genres ? useFetchGenreMovies(genres.toString()) : null
+    const [ getPageParam] = useSearchParams()
+    const idParam = getPageParam.get('id')
+    const movieByGenreQuery = genres ? useFetchGenreMovies(idParam!.toString()) : null
 
-    // console.log("Genre ID: ", genres)
-    // console.log("Movie by genre: ", movieByGenreQuery)
+    console.log("Genre ID: ", genres)
+    console.log("Movie by genre: ",movieByGenreQuery)
 
     return (
         <div>
-            Genre page
+            <h2>{genres}</h2>
             <div>
-                <ListMovies />
+                {movieByGenreQuery?.isSuccess &&
+                    <ListMovies data={movieByGenreQuery?.data.results}/>
+                }
             </div>
         </div>
 

@@ -1,7 +1,17 @@
-const ListMovies = () => {
+import React from "react";
+import ImageCard from "../components/Cards/ImageCard.tsx";
+import {browseMovieInt} from "../interfaces/movies.interface.ts";
+
+interface IProp {
+    data: browseMovieInt[]
+}
+
+const ListMovies:React.FC<IProp> = ({data}) => {
     return(
         <div>
-            LIST MOVIES
+            {data && data.map(movie => (
+                <ImageCard data={movie} />
+            ))}
         </div>
     )
 }
