@@ -8,7 +8,7 @@ interface IProp {
     title: string
 }
 
-const GridGenres:React.FC<IProp> = ({title}) => {
+const MenuGenres:React.FC<IProp> = ({title}) => {
 
     const [showAllGenres, setShowAllGenres] = useState(false)
 
@@ -29,4 +29,4 @@ const GridGenres:React.FC<IProp> = ({title}) => {
     )
 }
 
-export default GridGenres
+export default MenuGenres

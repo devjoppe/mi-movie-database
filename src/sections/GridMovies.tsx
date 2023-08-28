@@ -1,8 +1,8 @@
 import React from "react";
 import {useFetchBrowseMovies} from "../hooks/useFetchBrowseMovies.ts";
-import {Card, Image} from "@nextui-org/react";
 import fetchError from "../components/Error/FetchError.tsx";
 import {useNavigate} from "react-router-dom";
+import ImageCard from "../components/Cards/ImageCard.tsx";
 
 interface IProp {
     title: string,
@@ -24,15 +24,7 @@ const GridMovies:React.FC<IProp> = ({title, identifier, option}) => {
             <h2>{title}</h2>
             <div className="flex flex-row overflow-x-auto gap-x-6">
                 { allMovies.isSuccess && allMovies &&  displayMovies!.map(movie => (
-                    <Card key={movie.id} className="w-36 flex-shrink-0">
-                        <Image
-                            alt={`Image background for ${movie.title}`}
-                            className="object-cover rounded-md"
-                            src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                            width={150}
-                            onClick={() => navigate("/movie/"+movie.id)}
-                        />
-                    </Card>
+                    <ImageCard key={movie.id} data={movie} />
                 ))}
             </div>
         </div>
