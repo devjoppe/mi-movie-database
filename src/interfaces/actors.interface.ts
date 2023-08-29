@@ -9,5 +9,8 @@ export interface actorInt {
     id: number,
     name: string,
     profile_path: string,
-    character: string
+    character?: string
+    imdb_id?: string,
+    biography?: string,
+    birthday?: string
 }
