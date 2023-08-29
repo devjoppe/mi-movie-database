@@ -12,5 +12,6 @@ export interface actorInt {
     character?: string
     imdb_id?: string,
     biography?: string,
-    birthday?: string
+    birthday?: string,
+    known_for_department?: string
 }
