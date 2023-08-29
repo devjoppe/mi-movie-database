@@ -22,10 +22,18 @@ Section name should reflect what kind of layout that is being used:
 ### Description
 **Components can also handle:**
 * Its own _Interfaces_
-### GridButtons
+
+GridButtons
 #### Description
-GridButtons is will use 2 properties, **id**  and **title/name**.
+GridButtons use 2 properties, ``id``  and ``title/name``.
 This component is designed for genre buttons and contains a grid system that will display the buttons in a certain order.
+
+### ImageAvatar
+#### Description
+ImageAvatar use 3 properties:
+* ``data`` - Contains the dataset
+* ``displayData`` - If text data as "name" and "character" should be displayed with the avatar.
+* ``size`` - Size of the image in the avatar
 
 ## Interface
 The folder Interface will contain all **GLOBAL** interfaces for the main data that is collected from the API.
