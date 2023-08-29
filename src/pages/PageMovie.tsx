@@ -26,8 +26,6 @@ const PageMovie = () => {
         }
     }, [movieQuery]);
 
-    console.log("movie data: ", movieQuery)
-
     // TODO: Use the backdrop image for the design
 
     return (
@@ -60,10 +58,10 @@ const PageMovie = () => {
                         <GridButtons data={movieGenres}/>
                     </div>
                     <div>
-                        <GridActors title={"Actors"} id={id ? id.toString() : null} />
+                        <GridActors title={"Actors"} url={"movie/"} identifier={id ? id.toString() : null} option={["credits"]} useRelated={false} />
                     </div>
                     <div>
-                        <GridMovies title={"Related movies"} identifier={id ? id.toString() : null} option={"similar"} />
+                        <GridMovies title={"Related movies"} url={"movie/"} identifier={id ? id.toString() : null} option={["similar"]} useRelated={false} />
                     </div>
                 </div>
             }
