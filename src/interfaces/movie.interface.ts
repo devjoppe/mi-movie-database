@@ -1,5 +1,4 @@
 import {genreInt} from "./genres.interface.ts";
-import {actorInt} from "./actors.interface.ts";
 
 export interface movieInt {
     backdrop_path: string,
@@ -15,5 +14,3 @@ export interface movieInt {
     runtime: number,
     release_date: string
 }
-
-export type movieActorType = movieInt | actorInt | null
