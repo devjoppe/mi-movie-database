@@ -45,7 +45,6 @@ export const fetchGenreMovies = (id: string, page:string) => {
 }
 
 // Fetching DETAIL DATA about movie and actor
-// Fetching DETAIL DATA about movie and actor
 export const fetchMovieActor = (id: string, type: string) => {
     return fetch<movieActorType>(`/${type}/${id}`)
 }
