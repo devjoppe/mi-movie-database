@@ -5,14 +5,18 @@ import {imageAvtarInt} from "./imageAvatar.interface.ts";
 
 interface IProp {
     data: imageAvtarInt,
-    displayData: boolean
+    displayData: boolean,
+    size: string
 }
 
-const ImageAvatar:React.FC<IProp> = ({data, displayData}) => {
+const ImageAvatar:React.FC<IProp> = ({data, displayData, size}) => {
+
+    console.log("Size of Avatar: ", size)
+
     return(
         <div>
             <Avatar
-                className="w-28 h-28 text-large"
+                className={`w-${size} h-${size}  text-large`}
                 name={data.name}
                 src={`https://image.tmdb.org/t/p/w300${data.profile_path}`}
                 showFallback

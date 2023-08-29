@@ -18,7 +18,7 @@ const GridActors:React.FC<IProp> = ({id, title}) => {
             <div className="flex overflow-x-auto gap-x-6">
                 { displayActors && displayActors.map(actor => (
                     <div key={actor.id} className="flex flex-col  gap-4 items-center">
-                        <ImageAvatar key={actor.id} data={actor} displayData={true}/>
+                        <ImageAvatar key={actor.id} data={actor} displayData={true} size={"28"}/>
                     </div>
                 ))}
             </div>
