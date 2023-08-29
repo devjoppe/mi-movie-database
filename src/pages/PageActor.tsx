@@ -15,7 +15,7 @@ const PageActor = () => {
     const [avatarInfo, setAvatarInfo] = useState<imageAvtarInt | null>(null)
 
     useEffect(() => {
-        if(actorQuery != null && actorQuery.data) {
+        if(actorQuery) {
             setActor((actorQuery.data as actorInt))
             if(actor) {
                 setAvatarInfo({
@@ -24,16 +24,28 @@ const PageActor = () => {
                 })
             }
         }
-    }, [actorQuery]);
+    }, [actorQuery?.data, actor]);
 
-    console.log("Actor: ", actorQuery)
+    console.log("Actor: ", actor)
+    console.log("ActorQuery: ", actorQuery)
 
     return (
         <>
             { actorQuery && actorQuery?.isError ? <FetchError /> : null }
             { actorQuery && actorQuery.isSuccess && actor && avatarInfo &&
-                <div>
-                    <ImageAvatar data={avatarInfo} displayData={false} />
+                <div className="flex items-center flex-col">
+                    <ImageAvatar data={avatarInfo} displayData={false} size={"44"} />
+                    <h1>{actor.name}</h1>
+                    <span>{actor.known_for_department}</span>
+                    <div>
+                        <a href={`https://www.imdb.com/name/${actor.imdb_id}`} target="_blank" aria-label={actor.name} >Profile on IMDB</a>
+                    </div>
+                    <div>
+                        {actor.biography}
+                    </div>
+                    <div>
+                        <h3></h3>
+                    </div>
                 </div>
             }
         </>
