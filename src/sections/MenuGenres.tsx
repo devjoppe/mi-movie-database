@@ -18,9 +18,9 @@ const MenuGenres:React.FC<IProp> = ({title}) => {
 
     useEffect(() => {
         if (genres.data) {
-            setDisplayGenres(genres.data.genres.slice(0,6))
+            showAllGenres ? setDisplayGenres(genres.data.genres) : setDisplayGenres(genres.data.genres.slice(0,6))
         }
-    }, [genres.data]);
+    }, [genres.data, showAllGenres]);
 
     const toggleShowGenres = () => {
         setShowAllGenres(!showAllGenres)
