@@ -13,8 +13,6 @@ const ListPagination:React.FC<IProp> = ({page, total_pages, id_param, genre_para
 
     const navigate = useNavigate()
 
-    console.log("Page number in ListPagination: ", page, total_pages)
-
     const changePage = (newPage: number) => {
         navigate(`/movies/${genre_param}?id=${id_param}&page=${newPage.toString()}`)
     }
