@@ -23,6 +23,7 @@ const ImageCard:React.FC<IProp> = ({data}) => {
                 className="object-cover rounded-md"
                 src={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
                 width={150}
+                loading={"eager"}
                 onClick={() => navigate("/movie/"+data.id)}
             />
         </Card>
