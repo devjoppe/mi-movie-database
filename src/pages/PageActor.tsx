@@ -5,6 +5,7 @@ import {actorInt} from "../interfaces/actors.interface.ts";
 import FetchError from "../components/Error/FetchError.tsx";
 import ImageAvatar from "../components/Avatars/ImageAvatar.tsx";
 import {imageAvtarInt} from "../components/Avatars/imageAvatar.interface.ts";
+import GridMovies from "../sections/GridMovies.tsx";
 
 const PageActor = () => {
 
@@ -19,6 +20,7 @@ const PageActor = () => {
             setActor((actorQuery.data as actorInt))
             if(actor) {
                 setAvatarInfo({
+                    id: actor.id as number,
                     name: actor.name as string,
                     profile_path: actor.profile_path as string
                 })
@@ -26,25 +28,24 @@ const PageActor = () => {
         }
     }, [actorQuery?.data, actor]);
 
-    console.log("Actor: ", actor)
-    console.log("ActorQuery: ", actorQuery)
-
     return (
         <>
-            { actorQuery && actorQuery?.isError ? <FetchError /> : null }
+            { actorQuery?.isError ? <FetchError /> : null }
             { actorQuery && actorQuery.isSuccess && actor && avatarInfo &&
-                <div className="flex items-center flex-col">
-                    <ImageAvatar data={avatarInfo} displayData={false} size={"44"} />
-                    <h1>{actor.name}</h1>
-                    <span>{actor.known_for_department}</span>
-                    <div>
-                        <a href={`https://www.imdb.com/name/${actor.imdb_id}`} target="_blank" aria-label={actor.name} >Profile on IMDB</a>
+                <div>
+                    <div className="flex items-center flex-col">
+                        <ImageAvatar data={avatarInfo} displayData={false} size={"44"} />
+                        <h1>{actor.name}</h1>
+                        <span>{actor.known_for_department}</span>
+                        <div>
+                            <a href={`https://www.imdb.com/name/${actor.imdb_id}`} target="_blank" aria-label={actor.name} >Profile on IMDB</a>
+                        </div>
+                        <div>
+                            {actor.biography}
+                        </div>
                     </div>
                     <div>
-                        {actor.biography}
-                    </div>
-                    <div>
-                        <h3></h3>
+                        <GridMovies title={"Actor in"} url={"person/"} identifier={actor.id.toString()} option={["movie_credits"]} useRelated={true} />
                     </div>
                 </div>
             }
