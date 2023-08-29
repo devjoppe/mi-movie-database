@@ -2,6 +2,7 @@ import {FaCamera} from "react-icons/fa";
 import {Avatar} from "@nextui-org/react";
 import React from "react";
 import {imageAvtarInt} from "./imageAvatar.interface.ts";
+import {useNavigate} from "react-router-dom";
 
 interface IProp {
     data: imageAvtarInt,
@@ -11,7 +12,7 @@ interface IProp {
 
 const ImageAvatar:React.FC<IProp> = ({data, displayData, size}) => {
 
-    console.log("Size of Avatar: ", size)
+    const navigate = useNavigate()
 
     return(
         <div>
@@ -23,6 +24,7 @@ const ImageAvatar:React.FC<IProp> = ({data, displayData, size}) => {
                 fallback={
                     <FaCamera/>
                 }
+                onClick={() => navigate("/actor/"+data.id)}
             />
             { displayData && (
                 <div>
