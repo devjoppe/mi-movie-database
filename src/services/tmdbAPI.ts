@@ -2,8 +2,7 @@ import axios from "axios";
 
 import {genresInt} from "../interfaces/genres.interface.ts";
 import {browseAllMoviesInt} from "../interfaces/movies.interface.ts";
-import {allRelatedActorsInt} from "../interfaces/actors.interface.ts";
-import {movieActorType} from "../interfaces/movie.interface.ts";
+import {allRelatedActorMovieType, movieActorType} from "../types/movieactor.type.ts";
 
 const API_URL = 'https://api.themoviedb.org/3'
 const APIKEY = import.meta.env.VITE_API_KEY
@@ -30,13 +29,13 @@ export const fetchGenre = () => {
 }
 
 // Fetching list of movies based on category (recent, top-rated, popular and all the other movies I specify)
-export const fetchBrowseMovies = (page: string, identifier: string | null, option: string | null) => {
-    return fetch<browseAllMoviesInt>(`/movie/${identifier}/${option != null ? option : "" }?page=${page}&region=us`)
+export const fetchBrowseMovies = (page: string, url:string, identifier: string | null, option: string | null) => {
+    return fetch<browseAllMoviesInt>(`/${url}/${identifier}${option != null ? "/"+option : "" }?page=${page}`)
 }
 
-// Fetching all related actors to a movie
-export const fetchRelatedActor = (id: string | null) => {
-    return fetch<allRelatedActorsInt>(`/movie/${id != null ? id : ""}/credits`)
+// Fetching all related actors and movies
+export const fetchRelatedMovieActor = (url:string, identifier: string | null, option:string[]) => {
+    return fetch<allRelatedActorMovieType>(`/${url}/${identifier}/${option![0]}`)
 }
 
 // Fetching all popular movies related to a genre

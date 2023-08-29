@@ -6,9 +6,9 @@ const PageStart = () => {
    return (
        <>
            <MenuGenres title={"Browse by genre"}/>
-           <GridMovies title={"Most recent"} identifier={"now_playing"} option={null} />
-           <GridMovies title={"Top rated"} identifier={"top_rated"} option={null}/>
-           <GridMovies title={"Most popular"} identifier={"popular"} option={null}/>
+           <GridMovies title={"Most recent"} url={"movie/"} identifier={"now_playing"} option={null} useRelated={false} />
+           <GridMovies title={"Trending"} url={"trending/movie/"} identifier={"day"} option={null} useRelated={false} />
+           <GridMovies title={"Most popular"} url={"movie/"} identifier={"top_rated"} option={null} useRelated={false} />
        </>
    )
 }
