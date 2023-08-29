@@ -1,4 +1,3 @@
-
 export interface allRelatedActorsInt {
     cast: actorInt[],
     isError: boolean,

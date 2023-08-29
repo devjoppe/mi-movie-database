@@ -14,3 +14,9 @@ export interface browseAllMoviesInt {
     isError: boolean,
     isSuccess: boolean
 }
+
+export interface allRelatedMoviesInt {
+    cast: browseMovieInt[],
+    isError: boolean,
+    isSuccess: boolean
+}
