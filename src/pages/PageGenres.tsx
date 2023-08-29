@@ -19,11 +19,6 @@ const PageGenres = () => {
     const [movieByGenre, setMovieByGenre] = useState<browseAllMoviesInt | null>(null)
     const [totalPageNumber, setTotalPageNumber] = useState(0)
 
-    /* console.log("Genre ID: ", setIdParam)
-    console.log("Page param: ", setPageParam)
-    console.log("Total of pages: ", totalPageNumber)
-    console.log("Listed movies: ", movieByGenreQuery) */
-
     useEffect(() => {
         if (movieByGenreQuery != null && movieByGenreQuery?.data) {
             const { total_pages } = movieByGenreQuery?.data;
@@ -31,8 +26,6 @@ const PageGenres = () => {
             setMovieByGenre(movieByGenreQuery.data)
         }
     }, [movieByGenreQuery])
-
-    console.log(movieByGenre)
 
     return (
         <div>
