@@ -1,18 +1,14 @@
 import {FaCamera} from "react-icons/fa";
 import {Avatar} from "@nextui-org/react";
 import React from "react";
-
-interface imageAvtarInt {
-    name: string,
-    profile_path: string,
-    character: string,
-}
+import {imageAvtarInt} from "./imageAvatar.interface.ts";
 
 interface IProp {
-    data: imageAvtarInt
+    data: imageAvtarInt,
+    displayData: boolean
 }
 
-const ImageAvatar:React.FC<IProp> = ({data}) => {
+const ImageAvatar:React.FC<IProp> = ({data, displayData}) => {
     return(
         <div>
             <Avatar
@@ -24,8 +20,12 @@ const ImageAvatar:React.FC<IProp> = ({data}) => {
                     <FaCamera/>
                 }
             />
-            <span>{data.name}</span>
-            <span>{data.character}</span>
+            { displayData && (
+                <div>
+                    <span>{data.name}</span>
+                    <span>{data.character}</span>
+                </div>
+            )}
         </div>
     )
 }
