@@ -18,11 +18,12 @@ const PageMovie = () => {
     const [movieGenres, setMovieGenres] = useState<genreInt[] | null>(null)
 
     useEffect(() => {
-        if(movieQuery != null && movieQuery.data)
+        if(movieQuery != null && movieQuery.data) {
             setMovie((movieQuery.data as movieInt))
             if(movie != null) {
                 setMovieGenres(movie.genres)
             }
+        }
     }, [movieQuery]);
 
     console.log("movie data: ", movieQuery)
@@ -32,7 +33,7 @@ const PageMovie = () => {
     return (
         <>
             { movieQuery && movieQuery?.isError ? <FetchError /> : null }
-            { movieQuery && movieQuery.isSuccess && movie && (
+            { movieQuery && movieQuery.isSuccess && movie &&
                 <div>
                     <div>
                         <div>
@@ -65,7 +66,7 @@ const PageMovie = () => {
                         <GridMovies title={"Related movies"} identifier={id ? id.toString() : null} option={"similar"} />
                     </div>
                 </div>
-            )}
+            }
         </>
     )
 }
