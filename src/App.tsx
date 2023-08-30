@@ -17,21 +17,25 @@ function App() {
     // Todo: Set a global Loading spinner, not just a fetching one. Will take some time to load the app.
 
   return (
-      <div className="container lg">
-          <Header />
-          <Breadcrumb />
-          <GlobalLoading />
-          <Routes>
-              <Route path="/" element={<PageStart />} />
-              <Route path="/movies/:genres" element={<PageGenres />} />
-              <Route path="/movie/:id" element={<PageMovie />} />
-              <Route path="/actor/:id" element={<PageActor />} />
-              <Route path="/search/" element={<PageSearch />} />
-              <Route path="*" element={<PageNotFound />} />
-          </Routes>
-          <Footer />
-          <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
-      </div>
+      <>
+          <div className="w-full">
+              <Header />
+              <Breadcrumb />
+          </div>
+          <div className="container lg pl-4 pr-4">
+              <GlobalLoading />
+              <Routes>
+                  <Route path="/" element={<PageStart />} />
+                  <Route path="/movies/:genres" element={<PageGenres />} />
+                  <Route path="/movie/:id" element={<PageMovie />} />
+                  <Route path="/actor/:id" element={<PageActor />} />
+                  <Route path="/search/" element={<PageSearch />} />
+                  <Route path="*" element={<PageNotFound />} />
+              </Routes>
+              <Footer />
+              <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+          </div>
+      </>
   )
 }
 
