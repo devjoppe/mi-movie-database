@@ -1,7 +1,7 @@
 const PageSearch = () => {
     return (
         <div>
-            Search page
+            <h1>Search</h1>
         </div>
     )
 }

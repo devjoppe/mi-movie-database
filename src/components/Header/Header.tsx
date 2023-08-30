@@ -16,7 +16,7 @@ const Header = () => {
         <div className="flex relative justify-between h-16 items-center bg-primary pl-4 pr-4">
             <div><Link to="/">HEADER LOGO</Link></div>
             <div>
-                <Button onClick={handleVisible}><FaSearch /></Button>
+                <Button isIconOnly onClick={handleVisible}><FaSearch /></Button>
                 { isVisible && <SearchField handleVisible={handleVisible}/> }
             </div>
         </div>
