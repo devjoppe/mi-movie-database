@@ -48,6 +48,15 @@ ImageAvatar use 3 properties:
 * ``displayData`` - If text data as "name" and "character" should be displayed with the avatar.
 * ``size`` - Size of the image in the avatar
 
+### ListPagination
+#### Description
+ListPagination use 5 properties:
+* ``page`` - Handles the what page is being clicked
+* ``total_pages`` - How many pages the dataset contains
+* ``id_param`` - specific id to construct reload url
+* ``genre_param`` - Specific category
+* ``type`` - Where is the pagination being used
+
 ## 📝 Interface
 ### Description
 The folder Interface will contain all **GLOBAL** interfaces for the main data that is collected from the API.
