@@ -10,7 +10,7 @@ const ListMovies:React.FC<IProp> = ({data}) => {
     return(
         <div className="flex flex-wrap gap-4">
             {data && data.map(movie => (
-                <ImageCard key={movie.title} data={movie} />
+                <ImageCard key={movie.title+movie.id} data={movie} />
             ))}
         </div>
     )

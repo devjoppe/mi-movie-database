@@ -47,3 +47,7 @@ export const fetchGenreMovies = (id: string, page:string) => {
 export const fetchMovieActor = (id: string, type: string) => {
     return fetch<movieActorType>(`/${type}/${id}`)
 }
+
+export const fetchSearchMovies = (query: string, page: string) => {
+    return fetch<browseAllMoviesInt>(`/search/movie?query=${query}&include_adult=false&page=${page}`)
+}
