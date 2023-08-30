@@ -6,15 +6,21 @@ interface IProp {
     page: number,
     total_pages: number
     id_param: string,
-    genre_param: string
+    genre_param: string,
+    type: string
 }
 
-const ListPagination:React.FC<IProp> = ({page, total_pages, id_param, genre_param}) => {
+const ListPagination:React.FC<IProp> = ({page, total_pages, type, id_param, genre_param}) => {
 
     const navigate = useNavigate()
 
     const changePage = (newPage: number) => {
-        navigate(`/movies/${genre_param}?id=${id_param}&page=${newPage.toString()}`)
+        if(type === "genre") {
+            navigate(`/movies/${genre_param}?id=${id_param}&page=${newPage.toString()}`)
+        }
+        if(type === "search") {
+            navigate(`/search/?query=${genre_param}&page=${newPage.toString()}`)
+        }
     }
 
     return(
