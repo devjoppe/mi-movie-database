@@ -42,7 +42,7 @@ const PageMovie = () => {
                             />
                         </div>
                         <div>
-                            <h2>{movie.title}</h2>
+                            <h1>{movie.title}</h1>
                             <span>{movie.tagline}</span>
                             <div><span>{movie.release_date}</span></div>
                             <div><span>{movie.runtime} min</span></div>
@@ -58,10 +58,12 @@ const PageMovie = () => {
                         <GridButtons data={movieGenres}/>
                     </div>
                     <div>
-                        <GridActors title={"Actors"} url={"movie/"} identifier={id ? id.toString() : null} option={["credits"]} useRelated={false} />
+                        <h2>Actors</h2>
+                        <GridActors url={"movie/"} identifier={id ? id.toString() : null} option={["credits"]} useRelated={false} />
                     </div>
                     <div>
-                        <GridMovies title={"Related movies"} url={"movie/"} identifier={id ? id.toString() : null} option={["similar"]} useRelated={false} />
+                        <h2>Similar movies</h2>
+                        <GridMovies url={"movie/"} identifier={id ? id.toString() : null} option={["similar"]} useRelated={false} />
                     </div>
                 </div>
             }

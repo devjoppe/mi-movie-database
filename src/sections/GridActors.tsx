@@ -6,7 +6,7 @@ import {allRelatedActorsInt} from "../interfaces/actors.interface.ts";
 
 interface IProp extends gridInt {}
 
-const GridActors:React.FC<IProp> = ({title, url, identifier, option}) => {
+const GridActors:React.FC<IProp> = ({url, identifier, option}) => {
 
     const getActors = useFetchRelatedMovieActors(url, identifier, option!)
 
@@ -20,7 +20,6 @@ const GridActors:React.FC<IProp> = ({title, url, identifier, option}) => {
 
     return(
         <div>
-            <h2>{title}</h2>
             <div className="flex overflow-x-auto gap-x-6">
                 { actors && actors.cast.map(actor => (
                     <div key={actor.id} className="flex flex-col  gap-4 items-center">

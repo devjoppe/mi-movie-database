@@ -45,7 +45,8 @@ const PageActor = () => {
                         </div>
                     </div>
                     <div>
-                        <GridMovies title={"Actor in"} url={"person/"} identifier={actor.id.toString()} option={["movie_credits"]} useRelated={true} />
+                        <h2>Actor in</h2>
+                        <GridMovies url={"person/"} identifier={actor.id.toString()} option={["movie_credits"]} useRelated={true} />
                     </div>
                 </div>
             }

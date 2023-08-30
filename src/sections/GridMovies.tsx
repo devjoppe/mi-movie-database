@@ -8,7 +8,7 @@ import {gridInt} from "../interfaces/grid.interface.ts";
 
 interface IProp extends gridInt {}
 
-const GridMovies:React.FC<IProp> = ({title,url, identifier, option, useRelated}) => {
+const GridMovies:React.FC<IProp> = ({url, identifier, option, useRelated}) => {
 
     const getMovies = !useRelated
         ? useFetchBrowseMovies("1", url, identifier, option != null ? option[0] : null)
@@ -29,7 +29,6 @@ const GridMovies:React.FC<IProp> = ({title,url, identifier, option, useRelated})
     return(
         <div className="relative">
             { movies && movies.isError ? <FetchError /> : null }
-            <h2>{title}</h2>
             <div className="flex flex-row overflow-x-auto gap-x-6">
                 { !useRelated
                 ? movies?.results.map(movieItem => (
