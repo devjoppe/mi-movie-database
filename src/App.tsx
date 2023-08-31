@@ -10,7 +10,7 @@ import Footer from "./components/Footer/Footer.tsx";
 
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import GlobalLoading from "./components/GlobalLoading/GlobalLoading.tsx";
-import Breadcrumb from "./components/Breadcrumb/Breadcrumb.tsx";
+import GenreMenu from "./components/Menus/GenreMenu.tsx";
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
       <>
           <div className="w-full">
               <Header />
-              <Breadcrumb />
+              <GenreMenu />
           </div>
           <div className="container lg pl-4 pr-4">
               <GlobalLoading />
