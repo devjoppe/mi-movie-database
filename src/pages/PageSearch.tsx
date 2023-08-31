@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {browseAllMoviesInt} from "../interfaces/movies.interface.ts";
 import ListMovies from "../sections/ListMovies.tsx";
 import ListPagination from "../components/Pagination/ListPagination.tsx";
+import FetchError from "../components/Error/FetchError.tsx";
 
 const PageSearch = () => {
 
@@ -24,16 +25,14 @@ const PageSearch = () => {
         }
     }, [movieBySearch]);
 
-    console.log(movieBySearch)
-    console.log("Page: ", setPage)
-
     return (
         <div>
             <h1>Search</h1>
             <span>You searched "{setQuery}"</span>
+            { movieBySearch.isError ? <FetchError /> : null }
             <div>
-                {movies &&
-                    <ListMovies data={movies!.results} />
+                { movieBySearch.isSuccess && movies &&
+                    <ListMovies data={movies.results} />
                 }
             </div>
             <div className="sticky bottom-0 z-10 bg-background w-full p-4 flex justify-center">
