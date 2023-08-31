@@ -21,7 +21,7 @@ const GridActors:React.FC<IProp> = ({url, identifier, option}) => {
     return(
         <div>
             <div className="flex overflow-x-auto gap-x-6">
-                { actors && actors.cast.map(actor => (
+                { actors && actors.cast.slice(0, 20).map(actor => (
                     <div key={actor.id+actor.character!} className="flex flex-col  gap-4 items-center">
                         <ImageAvatar data={actor} displayData={true} size={"28"}/>
                     </div>
