@@ -25,7 +25,7 @@ const OptionButtons:React.FC<IProp> = ({handleOptionClick, data}) => {
         <div>
             <ButtonGroup>
                 {data.map(opt => (
-                    <Button key={opt.name} className={isActive === opt.name ? "bg-amber-700" : ""} onClick={() => checkActive(opt.name)}>{opt.name}</Button>
+                    <Button size={"sm"} key={opt.name} className={isActive === opt.name ? "bg-amber-700" : ""} onClick={() => checkActive(opt.name)}>{opt.name}</Button>
                 ))}
             </ButtonGroup>
         </div>

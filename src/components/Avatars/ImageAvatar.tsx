@@ -17,7 +17,7 @@ const ImageAvatar:React.FC<IProp> = ({data, displayData, size}) => {
     return(
         <div>
             <Avatar
-                className={`w-${size} h-${size}  text-large`}
+                className={`w-${size} h-${size} text-large`}
                 name={data.name}
                 src={`https://image.tmdb.org/t/p/w300${data.profile_path}`}
                 showFallback
