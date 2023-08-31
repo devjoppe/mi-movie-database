@@ -31,7 +31,7 @@ const PageSearch = () => {
             <span>You searched "{setQuery}"</span>
             { movieBySearch.isError ? <FetchError /> : null }
             <div>
-                { movieBySearch.isSuccess && movies &&
+                { movies &&
                     <ListMovies data={movies.results} />
                 }
             </div>

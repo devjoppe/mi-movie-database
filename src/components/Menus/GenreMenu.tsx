@@ -3,6 +3,8 @@ import {useEffect, useState} from "react";
 import {useFetchGenre} from "../../hooks/useFetchGenre.ts";
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 import {genresInt} from "../../interfaces/genres.interface.ts";
+import {FaHome} from "react-icons/fa";
+import {IoArrowBackOutline} from "react-icons/io5";
 
 const GenreMenu = () => {
 
@@ -28,12 +30,12 @@ const GenreMenu = () => {
     }, [location, isVisible]);
 
     return(
-        <div className="py-4 z-20 bg-background sticky top-0">
+        <div className="z-20 bg-gray-800 sticky top-0">
             {isVisible && menuItems &&
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center p-2 pt-1">
                     <div>
-                        <Button className="mr-2" size={"sm"} onClick={() => navigate('/')}>Home</Button>
-                        <Button size={"sm"} onClick={() => navigate(-1)}>Go back</Button>
+                        <Button isIconOnly className="mr-2" size={"md"} onClick={() => navigate('/')}><FaHome /></Button>
+                        <Button isIconOnly size={"md"} onClick={() => navigate(-1)}><IoArrowBackOutline /></Button>
                     </div>
                     <div>
                         <Dropdown>

@@ -36,7 +36,7 @@ const PageGenres = () => {
                     <ListMovies data={movieByGenre!.results}/>
                 }
             </div>
-            <div className="sticky bottom-0 z-10 bg-background w-full p-4 flex justify-center">
+            <div className="sticky bottom-0 z-10 bg-gray-800 w-full p-4 flex justify-center">
                 <ListPagination page={Number(setPageParam)!} total_pages={totalPageNumber} id_param={setIdParam!} genre_param={genres!} type={"genre"} />
             </div>
         </div>

@@ -17,22 +17,24 @@ function App() {
       <>
           <div className="w-full">
               <Header />
-              <div className="h-1">
-                <GlobalLoading />
+              <div className="h-1 bg-gray-800">
+                  <GlobalLoading />
               </div>
           </div>
-          <div className="container lg pl-4 pr-4">
+          <div className="container lg">
               <GenreMenu />
-              <Routes>
-                  <Route path="/" element={<PageStart />} />
-                  <Route path="/movies/:genres" element={<PageGenres />} />
-                  <Route path="/movie/:id" element={<PageMovie />} />
-                  <Route path="/actor/:id" element={<PageActor />} />
-                  <Route path="/search/" element={<PageSearch />} />
-                  <Route path="*" element={<PageNotFound />} />
-              </Routes>
-              <Footer />
-              <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+              <div className="container pl-4 pr-4">
+                  <Routes>
+                      <Route path="/" element={<PageStart />} />
+                      <Route path="/movies/:genres" element={<PageGenres />} />
+                      <Route path="/movie/:id" element={<PageMovie />} />
+                      <Route path="/actor/:id" element={<PageActor />} />
+                      <Route path="/search/" element={<PageSearch />} />
+                      <Route path="*" element={<PageNotFound />} />
+                  </Routes>
+                  <Footer />
+                  <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+              </div>
           </div>
       </>
   )

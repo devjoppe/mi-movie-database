@@ -44,7 +44,7 @@ const PageMovie = () => {
     return (
         <>
             { movieQuery && movieQuery?.isError ? <FetchError /> : null }
-            { movieQuery && movieQuery.isSuccess && movie &&
+            { movie &&
                 <div>
                     <div>
                         <div>

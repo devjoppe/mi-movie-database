@@ -30,7 +30,7 @@ const MenuGenres:React.FC<IProp> = ({title}) => {
         <div>
             { genres.isError ? <FetchError /> : null }
             <h2>{title}</h2>
-            { genres.isSuccess && <GridButtons data={displayGenres}/> }
+            { genres && <GridButtons data={displayGenres}/> }
             <Button onClick={toggleShowGenres}>{showAllGenres ? "Hide genres" : "Show all genres"}</Button>
         </div>
     )

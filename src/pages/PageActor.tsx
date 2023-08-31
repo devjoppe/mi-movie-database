@@ -31,7 +31,7 @@ const PageActor = () => {
     return (
         <>
             { actorQuery?.isError ? <FetchError /> : null }
-            { actorQuery && actorQuery.isSuccess && actor && avatarInfo &&
+            { actor && avatarInfo &&
                 <div>
                     <div className="flex items-center flex-col">
                         <ImageAvatar data={avatarInfo} displayData={false} size={"44"} />
