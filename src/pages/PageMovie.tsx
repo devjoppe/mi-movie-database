@@ -8,6 +8,8 @@ import GridButtons from "../components/Buttons/GridButtons.tsx";
 import {genreInt} from "../interfaces/genres.interface.ts";
 import {useEffect, useState} from "react";
 import {movieInt} from "../interfaces/movie.interface.ts";
+import {browseMovieInt} from "../interfaces/movies.interface.ts";
+import GridRecentVisited from "../sections/GridRecentVisited.tsx";
 
 const PageMovie = () => {
 
@@ -17,7 +19,7 @@ const PageMovie = () => {
     const [movie, setMovie] = useState<movieInt | null>(null)
     const [movieGenres, setMovieGenres] = useState<genreInt[] | null>(null)
 
-    let getLastVisited = JSON.parse(localStorage.getItem("MDMovies") || "[]");
+    let getLastVisited:browseMovieInt[] = JSON.parse(localStorage.getItem("MDMovies") || "[]");
 
     useEffect(() => {
         if(movieQuery !== null && movieQuery.data) {
@@ -28,12 +30,14 @@ const PageMovie = () => {
     useEffect(() => {
         if(movie != null) {
             setMovieGenres(movie.genres)
-            getLastVisited.push({
-                id: movie.id,
+            let storeListVisisted = getLastVisited.filter(item => item.id != movie.id)
+            storeListVisisted.push({
+                id: movie.id!,
                 title: movie.title,
                 poster_path: movie.poster_path,
             })
-            localStorage.setItem("MDMovies", JSON.stringify(getLastVisited))
+
+            localStorage.setItem("MDMovies", JSON.stringify(storeListVisisted))
         }
     }, [movie]);
 
@@ -74,6 +78,10 @@ const PageMovie = () => {
                     <div>
                         <h2>Similar movies</h2>
                         <GridMovies url={"movie/"} identifier={id ? id.toString() : null} option={["similar"]} useRelated={false} />
+                    </div>
+                    <div>
+                        <h3>My recent visited movies</h3>
+                        <GridRecentVisited />
                     </div>
                 </div>
             }
