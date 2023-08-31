@@ -28,7 +28,7 @@ const GenreMenu = () => {
     }, [location, isVisible]);
 
     return(
-        <div className="p-4 sticky top-0">
+        <div className="py-4 z-20 bg-background sticky top-0">
             {isVisible && menuItems &&
                 <div className="flex justify-between items-center">
                     <div>

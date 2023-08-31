@@ -20,9 +20,9 @@ function App() {
       <>
           <div className="w-full">
               <Header />
-              <GenreMenu />
           </div>
           <div className="container lg pl-4 pr-4">
+              <GenreMenu />
               <GlobalLoading />
               <Routes>
                   <Route path="/" element={<PageStart />} />
