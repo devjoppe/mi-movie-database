@@ -3,6 +3,7 @@ import {useFetchRelatedMovieActors} from "../hooks/useFetchRelatedMovieActors.ts
 import ImageAvatar from "../components/Avatars/ImageAvatar.tsx";
 import {gridInt} from "../interfaces/grid.interface.ts";
 import {allRelatedActorsInt} from "../interfaces/actors.interface.ts";
+import FetchError from "../components/Error/FetchError.tsx";
 
 interface IProp extends gridInt {}
 
@@ -20,6 +21,7 @@ const GridActors:React.FC<IProp> = ({url, identifier, option}) => {
 
     return(
         <div>
+            { actors?.isError ? <FetchError /> : null }
             <div className="flex overflow-x-auto gap-x-6">
                 { actors && actors.cast.slice(0, 20).map(actor => (
                     <div key={actor.id+actor.character!} className="flex flex-col  gap-4 items-center">
