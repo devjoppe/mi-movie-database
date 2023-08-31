@@ -55,6 +55,7 @@ const PageMovie = () => {
                         {movie.overview}
                     </div>
                     <div>
+                        <h2>Genres</h2>
                         <GridButtons data={movieGenres}/>
                     </div>
                     <div>
