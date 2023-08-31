@@ -17,6 +17,7 @@ Section name should reflect what kind of layout that is being used:
 ``<GridActors>``
 ``<MenuGenres>``
 ``<ListMovies>``
+``<GridRecentVisited>``
 
 ### GridMovies
 #### Description
@@ -56,6 +57,14 @@ ListPagination use 5 properties:
 * ``id_param`` - specific id to construct reload url
 * ``genre_param`` - Specific category
 * ``type`` - Where is the pagination being used
+* 
+### OptionButtons
+#### Description
+OptionButtons is designed to be a generic component to be used in different scenarios.
+
+ListPagination use 5 properties:
+* ``handleClickOption`` - (data: string, localStorage: boolean) => void. Returns a function call
+* ``data`` - What the button set will contain for information
 
 ## 📝 Interface
 ### Description
