@@ -1,38 +1,58 @@
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {useFetchGenre} from "../../hooks/useFetchGenre.ts";
-import {genreInt} from "../../interfaces/genres.interface.ts";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
+
+interface menuItemsInt {
+    key: number,
+    label: string
+}
 
 const GenreMenu = () => {
 
     const location = useLocation()
+    const navigate = useNavigate()
 
     const [isVisible, setIsVisible] = useState(false)
-    const [genres, setGenres] = useState<genreInt[] | null>(null)
+    const [menuItems, setMenuItems] = useState<menuItemsInt[]>([])
     const getGenres = useFetchGenre()
 
     useEffect(() => {
         if(location.pathname !== '/') {
+            let genreArray: menuItemsInt[] = []
             setIsVisible(true)
             if(getGenres.data) {
-                setGenres(getGenres.data.genres)
+                getGenres.data.genres.map(item => (
+                    genreArray.push({
+                        label: item.name,
+                        key: item.id
+                    })
+                ))
+                setMenuItems(genreArray)
             }
         } else {
             setIsVisible(false)
         }
-    }, [location]);
+    }, [location, isVisible]);
 
     return(
         <div>
-            {isVisible &&
+            {isVisible && menuItems &&
                 <>
                     <div>
-                        Go Back button
+                        <Button onClick={() => navigate(-1)}>Go back</Button>
                     </div>
                     <div>
-                        {genres && genres.map(genre => (
-                            <span>{genre.name}</span>
-                        ))}
+                        <Dropdown>
+                            <DropdownTrigger>
+                                <Button>Choose a genre</Button>
+                            </DropdownTrigger>
+                            <DropdownMenu aria-label="Genres" >
+                                { menuItems && menuItems.map(mItem => (
+                                    <DropdownItem key={mItem.key}>{mItem.label}</DropdownItem>
+                                ))}
+                            </DropdownMenu>
+                        </Dropdown>
                     </div>
                 </>
             }
