@@ -1,6 +1,7 @@
 import {genreInt} from "./genres.interface.ts";
 
 export interface movieInt {
+    id?: number,
     backdrop_path: string,
     budget: number,
     genres: genreInt[]

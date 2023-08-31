@@ -17,16 +17,25 @@ const PageMovie = () => {
     const [movie, setMovie] = useState<movieInt | null>(null)
     const [movieGenres, setMovieGenres] = useState<genreInt[] | null>(null)
 
+    let getLastVisited = JSON.parse(localStorage.getItem("MDMovies") || "[]");
+
     useEffect(() => {
-        if(movieQuery != null && movieQuery.data) {
+        if(movieQuery !== null && movieQuery.data) {
             setMovie((movieQuery.data as movieInt))
-            if(movie != null) {
-                setMovieGenres(movie.genres)
-            }
         }
     }, [movieQuery]);
 
-    // TODO: Use the backdrop image for the design
+    useEffect(() => {
+        if(movie != null) {
+            setMovieGenres(movie.genres)
+            getLastVisited.push({
+                id: movie.id,
+                title: movie.title,
+                poster_path: movie.poster_path,
+            })
+            localStorage.setItem("MDMovies", JSON.stringify(getLastVisited))
+        }
+    }, [movie]);
 
     return (
         <>
