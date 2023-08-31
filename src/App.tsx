@@ -13,17 +13,16 @@ import GlobalLoading from "./components/GlobalLoading/GlobalLoading.tsx";
 import GenreMenu from "./components/Menus/GenreMenu.tsx";
 
 function App() {
-
-    // Todo: Set a global Loading spinner, not just a fetching one. Will take some time to load the app.
-
   return (
       <>
           <div className="w-full">
               <Header />
+              <div className="h-1">
+                <GlobalLoading />
+              </div>
           </div>
           <div className="container lg pl-4 pr-4">
               <GenreMenu />
-              <GlobalLoading />
               <Routes>
                   <Route path="/" element={<PageStart />} />
                   <Route path="/movies/:genres" element={<PageGenres />} />
