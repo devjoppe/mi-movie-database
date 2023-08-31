@@ -32,7 +32,7 @@ const PageGenres = () => {
             <h2>{genres}</h2>
             <div>
                 { movieByGenre?.isError ? <FetchError /> : null }
-                { movieByGenreQuery.isSuccess && movieByGenre &&
+                { movieByGenre &&
                     <ListMovies data={movieByGenre!.results}/>
                 }
             </div>
