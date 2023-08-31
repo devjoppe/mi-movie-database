@@ -73,7 +73,7 @@ const PageMovie = () => {
                     </div>
                     <div>
                         <h2>Actors</h2>
-                        <GridActors url={"movie/"} identifier={id ? id.toString() : null} option={["credits"]} useRelated={false} />
+                        <GridActors url={"movie"} identifier={id ? id.toString() : null} option={["credits"]} useRelated={false} />
                     </div>
                     <div>
                         <h2>Similar movies</h2>
