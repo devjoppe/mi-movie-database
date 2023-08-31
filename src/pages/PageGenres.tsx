@@ -28,7 +28,7 @@ const PageGenres = () => {
     }, [movieByGenreQuery])
 
     return (
-        <div>
+        <div className="relative">
             <h2>{genres}</h2>
             <div>
                 { movieByGenre?.isError ? <FetchError /> : null }

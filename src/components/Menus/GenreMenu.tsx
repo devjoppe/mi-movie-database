@@ -22,6 +22,7 @@ const GenreMenu = () => {
             let genreArray: menuItemsInt[] = []
             setIsVisible(true)
             if(getGenres.data) {
+                // This is SO overkill (see commit message) -> But I don´t have the "ork" to change it.
                 getGenres.data.genres.map(item => (
                     genreArray.push({
                         label: item.name,
@@ -36,9 +37,9 @@ const GenreMenu = () => {
     }, [location, isVisible]);
 
     return(
-        <div>
+        <div className="p-4 sticky top-0">
             {isVisible && menuItems &&
-                <>
+                <div className="flex justify-between ">
                     <div>
                         <Button onClick={() => navigate(-1)}>Go back</Button>
                     </div>
@@ -47,14 +48,14 @@ const GenreMenu = () => {
                             <DropdownTrigger>
                                 <Button>Choose a genre</Button>
                             </DropdownTrigger>
-                            <DropdownMenu aria-label="Genres" >
+                            <DropdownMenu aria-label="Genre menu" >
                                 { menuItems && menuItems.map(mItem => (
-                                    <DropdownItem key={mItem.key}>{mItem.label}</DropdownItem>
+                                    <DropdownItem key={mItem.key} onClick={() => navigate(`/movies/${mItem.label}?id=${mItem.key}&page=1`)}>{mItem.label}</DropdownItem>
                                 ))}
                             </DropdownMenu>
                         </Dropdown>
                     </div>
-                </>
+                </div>
             }
         </div>
     )
