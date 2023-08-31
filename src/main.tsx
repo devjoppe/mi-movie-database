@@ -10,7 +10,7 @@ const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
             refetchOnWindowFocus: false,
-            staleTime: 3600000, // 1 hour
+            staleTime: 3600000, // 1 hour - because why not. It is a slow-moving page.
             cacheTime: 3600000, // 1 hour
         }
     }
@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
                 <NextUIProvider>
-                    <main className="dark text-foreground bg-background">
+                    <main className="dark text-foreground bg-background h-full">
                         <App />
                     </main>
                 </NextUIProvider>

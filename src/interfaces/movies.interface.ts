@@ -12,7 +12,8 @@ export interface browseAllMoviesInt {
     page?: number
     total_pages?: number,
     isError: boolean,
-    isSuccess: boolean
+    isSuccess: boolean,
+    isFetching: boolean
 }
 
 export interface allRelatedMoviesInt {

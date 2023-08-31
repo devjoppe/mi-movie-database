@@ -25,7 +25,7 @@ const ListPagination:React.FC<IProp> = ({page, total_pages, type, id_param, genr
 
     return(
         <div>
-            <Pagination total={total_pages} initialPage={1} page={page} onChange={changePage}/>
+            <Pagination total={total_pages} initialPage={page} page={page} onChange={changePage}/>
         </div>
     )
 }

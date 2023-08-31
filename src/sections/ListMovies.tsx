@@ -7,6 +7,7 @@ interface IProp {
 }
 
 const ListMovies:React.FC<IProp> = ({data}) => {
+
     return(
         <div className="flex flex-wrap gap-4">
             {data && data.map(movie => (
