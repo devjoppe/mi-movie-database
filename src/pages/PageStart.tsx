@@ -8,7 +8,9 @@ const PageStart = () => {
 
     const options = [{name: "day"}, {name: "week"}]
     const [isTrending, setIsTrending] = useState('day')
-    const getTrending = localStorage.getItem('MDTredning')
+    const getTrending = localStorage.getItem('MDTrending')
+
+    console.log(getTrending)
 
     useEffect(() => {
         if(getTrending) {
