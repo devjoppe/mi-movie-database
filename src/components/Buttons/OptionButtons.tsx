@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, ButtonGroup} from "@nextui-org/react";
 
 interface optionButtonsInt {
@@ -7,17 +7,24 @@ interface optionButtonsInt {
 
 interface IProp {
     data: optionButtonsInt[]
-    handleOptionClick: (data: string) => void
+    handleOptionClick: (data: string, localStorage: boolean) => void,
 }
 
 const OptionButtons:React.FC<IProp> = ({handleOptionClick, data}) => {
 
     const [isActive, setIsActive] = useState(data[0].name)
+    const usingLocalStorage = true
+
+    useEffect(() => {
+        if(usingLocalStorage) {
+            setIsActive((localStorage.getItem('MDTrending') as string))
+        }
+    }, []);
 
     const checkActive = (data: string) => {
         if(isActive != data){
             setIsActive(data)
-            handleOptionClick(data)
+            handleOptionClick(data, usingLocalStorage)
         }
     }
 
