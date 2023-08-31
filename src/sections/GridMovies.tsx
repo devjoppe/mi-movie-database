@@ -31,11 +31,11 @@ const GridMovies:React.FC<IProp> = ({url, identifier, option, useRelated}) => {
             { movies && movies.isError ? <FetchError /> : null }
             <div className="flex flex-row overflow-x-auto gap-x-6">
                 { !useRelated
-                ? movies?.results.map(movieItem => (
+                ? movies?.results.slice(0,30).map(movieItem => (
                     movieItem.poster_path != null &&
                         <ImageCard key = {movieItem.id} data = {movieItem}/>
                 ))
-                : relatedMovies?.cast.map(movieItem => (
+                : relatedMovies?.cast.slice(0,30).map(movieItem => (
                     movieItem.poster_path != null &&
                         <ImageCard key={movieItem.id} data={movieItem} />
                 ))
