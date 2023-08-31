@@ -6,7 +6,7 @@ const GridRecentVisited = () => {
     let localVisited: browseMovieInt[] = JSON.parse(localStorage.getItem("MDMovies") || "[]")
     let visitList = localVisited
 
-    if(localVisited.length > 5) {
+    if(localVisited.length > 10) {
         localVisited.shift()
         localStorage.setItem("MDMovies", JSON.stringify(visitList))
     }
