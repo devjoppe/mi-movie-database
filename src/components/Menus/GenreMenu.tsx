@@ -39,9 +39,10 @@ const GenreMenu = () => {
     return(
         <div className="p-4 sticky top-0">
             {isVisible && menuItems &&
-                <div className="flex justify-between ">
+                <div className="flex justify-between items-center">
                     <div>
-                        <Button onClick={() => navigate(-1)}>Go back</Button>
+                        <Button className="mr-2" size={"sm"} onClick={() => navigate('/')}>Home</Button>
+                        <Button size={"sm"} onClick={() => navigate(-1)}>Go back</Button>
                     </div>
                     <div>
                         <Dropdown>
