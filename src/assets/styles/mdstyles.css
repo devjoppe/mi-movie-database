@@ -129,6 +129,11 @@ h3 {
 
 .mb-movie {
     flex-direction: column;
+    align-items: center;
+}
+
+.mb-movie-info-data {
+    align-items: center;
 }
 
 @media screen and (min-width: 1280px) {
@@ -178,6 +183,7 @@ h3 {
     }
     .mb-movie {
         flex-direction: row;
+        align-items: flex-start
     }
     .mb-movie-info {
         margin-left: 4rem;
