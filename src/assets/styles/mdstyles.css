@@ -22,6 +22,7 @@ h2 {
     display: inline-block;
     font-size: 2.2rem;
     margin-bottom: 1.4rem;
+    line-height: 42px;
 }
 
 h3 {
@@ -102,11 +103,32 @@ h3 {
 .md-avatars-list {
     width: 8rem;
     height: 8rem;
+    cursor: pointer;
 }
 
 .md-actor .md-avatars-list {
     width: 14rem;
     height: 14rem;
+}
+
+.mb-actor-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.actor-info-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mb-movie-info {
+    flex-direction: column;
+}
+
+.mb-movie {
+    flex-direction: column;
 }
 
 @media screen and (min-width: 1280px) {
@@ -139,6 +161,33 @@ h3 {
     .md-footer {
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    .mb-actor-info {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .mb-movie-info-data {
+        align-items: flex-start;
+    }
+
+    .actor-info-data {
+        margin-left: 4rem;
+        align-items: flex-start;
+    }
+    .mb-movie {
+        flex-direction: row;
+    }
+    .mb-movie-info {
+        margin-left: 4rem;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .md-movie-page-image {
+        display: inline-block;
+        width: 500px;
     }
 }
 

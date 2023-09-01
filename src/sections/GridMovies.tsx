@@ -26,23 +26,23 @@ const GridMovies:React.FC<IProp> = ({url, identifier, option, useRelated}) => {
         }
     }, [getMovies]);
 
+    console.log(relatedMovies)
+
     return(
         <div className="relative md-section md-section-grid-movies">
             { movies && movies.isError ? <FetchError /> : null }
-            { movies &&
-                <div className="flex flex-row overflow-x-scroll gap-x-6 w-full">
-                    { !useRelated
-                    ? movies?.results.slice(0,30).map(movieItem => (
-                        movieItem.poster_path != null &&
-                            <ImageCard key = {movieItem.id} data = {movieItem}/>
-                    ))
-                    : relatedMovies?.cast.slice(0,30).map(movieItem => (
-                        movieItem.poster_path != null &&
-                            <ImageCard key={movieItem.id} data={movieItem} />
-                    ))
-                    }
-                </div>
-            }
+            <div className="flex flex-row overflow-x-scroll gap-x-6 w-full">
+                { !useRelated
+                ? movies && movies?.results.slice(0,30).map(movieItem => (
+                    movieItem.poster_path != null &&
+                        <ImageCard key = {movieItem.id} data = {movieItem}/>
+                ))
+                : relatedMovies && relatedMovies?.cast.slice(0,30).map(movieItem => (
+                    movieItem.poster_path != null &&
+                        <ImageCard key={movieItem.id} data={movieItem} />
+                ))
+                }
+            </div>
         </div>
     )
 }

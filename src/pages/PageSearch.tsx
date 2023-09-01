@@ -25,18 +25,23 @@ const PageSearch = () => {
         }
     }, [movieBySearch]);
 
+    console.log("From search: ", movies)
+
     return (
-        <div>
+        <div className="flex flex-col">
             <h1>Search</h1>
-            <span>You searched "{setQuery}"</span>
+            <span className="mt-4 mb-4">You searched "{setQuery}"</span>
             { movieBySearch.isError ? <FetchError /> : null }
             <div>
                 { movies &&
                     <ListMovies data={movies.results} />
                 }
+                { movies?.results.length === 0 &&
+                    <div>There where no results for { setQuery }. Try another keyword!</div>
+                }
             </div>
             <div className="sticky bottom-0 z-10 bg-background w-full p-4 flex justify-center">
-                <ListPagination page={Number(setPage)!} total_pages={totalPageNumber} id_param={""} genre_param={setQuery!} type={"search"} />
+                { movies?.results.length != 0 && <ListPagination page={Number(setPage)!} total_pages={totalPageNumber} id_param={""} genre_param={setQuery!} type={"search"} />}
             </div>
         </div>
     )

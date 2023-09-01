@@ -33,15 +33,19 @@ const PageActor = () => {
             { actorQuery?.isError ? <FetchError /> : null }
             { actor && avatarInfo &&
                 <div>
-                    <div className="flex items-center flex-col md-actor">
+                    <div className="mb-actor-info flex md-actor">
                         <ImageAvatar data={avatarInfo} displayData={false}/>
-                        <h1>{actor.name}</h1>
-                        <span className="md-tag-line text-slate-400">{actor.known_for_department}</span>
-                        <div>
-                            <a className="bg-amber-400 text-slate-900 rounded-md p-2 px-4 mt-4 inline-block" href={`https://www.imdb.com/name/${actor.imdb_id}`} target="_blank" aria-label={actor.name} >Profile on IMDB</a>
-                        </div>
-                        <div className="md-actor-overview">
-                            {actor.biography}
+                        <div className="actor-info-data">
+                            <h1>{actor.name}</h1>
+                            <div className="mt-4">
+                            <span className="md-tag-line text-slate-400">{actor.known_for_department}</span>
+                            </div>
+                            <div>
+                                <a className="bg-amber-400 text-slate-900 rounded-md p-2 px-4 mt-4 inline-block" href={`https://www.imdb.com/name/${actor.imdb_id}`} target="_blank" aria-label={actor.name} >Profile on IMDB</a>
+                            </div>
+                            <div className="md-actor-overview">
+                                {actor.biography}
+                            </div>
                         </div>
                     </div>
                     <div>
