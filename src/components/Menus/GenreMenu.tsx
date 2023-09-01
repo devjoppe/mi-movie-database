@@ -30,7 +30,7 @@ const GenreMenu = () => {
     }, [location, isVisible]);
 
     return(
-        <div className="z-20 bg-gray-800 sticky top-0">
+        <div className="z-20 bg-gray-900 sticky top-0 pt-1">
             {isVisible && menuItems &&
                 <div className="flex justify-between items-center p-2 pt-1">
                     <div>

@@ -21,7 +21,7 @@ function App() {
                   <GlobalLoading />
               </div>
           </div>
-          <div className="container lg">
+          <div className="container">
               <GenreMenu />
               <div className="container p-4 pt-8">
                   <Routes>

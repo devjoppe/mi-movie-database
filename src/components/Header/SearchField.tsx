@@ -15,7 +15,7 @@ const SearchField:React.FC<IProp> = ({handleVisible}) => {
     const [queryText, setQueryText] = useState("")
 
     return(
-        <div className="flex items-center px-2 h-full w-full absolute top-0 left-0 bg-secondary ">
+        <div className="flex items-center px-2 h-full w-full absolute top-0 left-0 bg-gray-900">
             <form className="flex items-center w-full" onSubmit={(e) => {
                     e.preventDefault()
                     navigate(`/search/?query=${queryText}&page=1`)

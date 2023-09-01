@@ -27,10 +27,10 @@ const GridMovies:React.FC<IProp> = ({url, identifier, option, useRelated}) => {
     }, [getMovies]);
 
     return(
-        <div className="relative md-section">
+        <div className="relative md-section md-section-grid-movies">
             { movies && movies.isError ? <FetchError /> : null }
             { movies &&
-                <div className="flex flex-row overflow-x-auto gap-x-6">
+                <div className="flex flex-row overflow-x-scroll gap-x-6 w-full">
                     { !useRelated
                     ? movies?.results.slice(0,30).map(movieItem => (
                         movieItem.poster_path != null &&

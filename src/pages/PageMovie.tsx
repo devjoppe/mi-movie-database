@@ -45,26 +45,24 @@ const PageMovie = () => {
         <>
             { movieQuery && movieQuery?.isError ? <FetchError /> : null }
             { movie &&
-                <div>
+                <div className="w-full">
                     <div>
-                        <div>
+                        <div className="flex w-full justify-center">
                             <Image
                                 alt={`Image background for ${movie.title}`}
                                 className="object-cover rounded-md"
                                 src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                             />
                         </div>
-                        <div>
+                        <div className="flex flex-col items-center">
                             <h1>{movie.title}</h1>
-                            <span>{movie.tagline}</span>
-                            <div><span>{movie.release_date}</span></div>
+                            <span className="md-tag-line text-slate-400">{movie.tagline}</span>
+                            <div><span>Release: {movie.release_date}</span></div>
                             <div><span>{movie.runtime} min</span></div>
-                        </div>
-                        <div>
                             <a href={`https://www.imdb.com/title/${movie.imdb_id}/`} aria-label={`Visit ${movie.title} on IMDB`} target="_blank">Visit {movie.title} on IMDB</a>
                         </div>
                     </div>
-                    <div>
+                    <div className="md-movie-overview">
                         {movie.overview}
                     </div>
                     <div>

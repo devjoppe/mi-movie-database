@@ -18,7 +18,7 @@ const MenuGenres:React.FC<IProp> = ({title}) => {
 
     useEffect(() => {
         if (genres.data) {
-            showAllGenres ? setDisplayGenres(genres.data.genres) : setDisplayGenres(genres.data.genres.slice(0,6))
+            showAllGenres ? setDisplayGenres(genres.data.genres) : setDisplayGenres(genres.data.genres.slice(0,9))
         }
     }, [genres.data, showAllGenres]);
 
@@ -30,7 +30,9 @@ const MenuGenres:React.FC<IProp> = ({title}) => {
         <div className="md-section">
             { genres.isError ? <FetchError /> : null }
             <span className="span-menu-title">{title}</span>
-            { genres && <GridButtons data={displayGenres}/> }
+            <div className="md-genre-grid-buttons">
+                { genres && <GridButtons data={displayGenres}/> }
+            </div>
             <Button onClick={toggleShowGenres}>{showAllGenres ? "Hide genres" : "Show all genres"}</Button>
         </div>
     )

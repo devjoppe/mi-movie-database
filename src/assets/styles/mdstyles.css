@@ -9,19 +9,122 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    font-size: 5rem;
+    font-size: 3rem;
+    display: inline-block;
+    line-height: 48px;
+    margin-top: 2rem;
 }
 
 h2 {
     display: inline-block;
-    font-size: 2.8rem;
-    margin-bottom: 1.6rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.4rem;
+}
 
+h3 {
+    display: inline-block;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
 }
 
 .md-section {
     margin-bottom: 2.8rem;
 }
 
+.md-image-card {
+    width: auto;
+}
 
+.md-image-card-image {
+    cursor: pointer;
+    width: 9rem;
+}
 
+.md-section-grid-movies {
+}
+
+.span-menu-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+}
+
+.md-genre-grid-buttons {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.md-list-movies {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+}
+
+.md-footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.md-footer-text {
+    font-size: 0.8rem;
+}
+
+.md-tag-line {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.md-movie-overview {
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+@media screen and (min-width: 1280px) {
+    h2 {
+        font-size: 2.8rem;
+    }
+
+    h3 {
+        font-size: 2.2rem;
+    }
+
+    .span-menu-title {
+        font-size: 1.8rem;
+    }
+
+    .md-image-card-image {
+        width: 13rem;
+    }
+
+    .md-section-grid-movies {
+    }
+
+    .md-list-movies {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-column-gap: 1rem;
+        grid-row-gap: 1rem;
+    }
+
+    .md-footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .md-list-movies {
+        grid-template-columns: repeat(6, 1fr);
+
+    }
+}
+
+@media screen and (min-width: 1420px) {
+    .md-list-movies {
+        grid-template-columns: repeat(7, 1fr);
+
+    }
+}

@@ -17,13 +17,12 @@ const ImageCard:React.FC<IProp> = ({data}) => {
     const navigate = useNavigate()
 
     return(
-        <Card className="w-36 flex-shrink-0">
+        <Card className="md-image-card flex-shrink-0">
             <Image
                 alt={`Image background for ${data.title}`}
-                className="object-cover rounded-md"
+                className="object-cover rounded-md md-image-card-image"
                 src={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
-                width={150}
-                loading={"eager"}
+                loading={"lazy"}
                 onClick={() => navigate("/movie/"+data.id)}
             />
         </Card>
