@@ -4,6 +4,9 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+button {
+}
+
 h1, h2, h3, h4 {
     font-family: 'Oswald', sans-serif;
 }
@@ -75,11 +78,35 @@ h3 {
     margin-bottom: 1rem;
     font-size: 1.2rem;
     font-weight: bold;
+    text-align: center;
 }
 
 .md-movie-overview {
     margin-top: 1.2rem;
     margin-bottom: 1.2rem;
+}
+
+.md-actor-overview {
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.md-movie-h1 {
+    text-align: center;
+}
+
+.md-imdb-link {
+
+}
+
+.md-avatars-list {
+    width: 8rem;
+    height: 8rem;
+}
+
+.md-actor .md-avatars-list {
+    width: 14rem;
+    height: 14rem;
 }
 
 @media screen and (min-width: 1280px) {

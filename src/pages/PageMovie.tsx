@@ -55,22 +55,24 @@ const PageMovie = () => {
                             />
                         </div>
                         <div className="flex flex-col items-center">
-                            <h1>{movie.title}</h1>
+                            <h1 className="md-movie-h1">{movie.title}</h1>
                             <span className="md-tag-line text-slate-400">{movie.tagline}</span>
-                            <div><span>Release: {movie.release_date}</span></div>
-                            <div><span>{movie.runtime} min</span></div>
-                            <a href={`https://www.imdb.com/title/${movie.imdb_id}/`} aria-label={`Visit ${movie.title} on IMDB`} target="_blank">Visit {movie.title} on IMDB</a>
+                            <span>{movie.release_date}</span>
+                            <span>{movie.runtime} min</span>
                         </div>
                     </div>
                     <div className="md-movie-overview">
                         {movie.overview}
+                    </div>
+                    <div className="flex w-full justify-center mb-8">
+                    <a className="md-imdb-link bg-amber-400 text-slate-900 rounded-md p-2 px-4 mt-4" href={`https://www.imdb.com/title/${movie.imdb_id}/`} aria-label={`Visit ${movie.title} on IMDB`} target="_blank">Visit {movie.title} on IMDB</a>
                     </div>
                     <div>
                         <h2>Genres</h2>
                         <GridButtons data={movieGenres}/>
                     </div>
                     <div>
-                        <h2>Actors</h2>
+                        <h2>{movie.title} actors</h2>
                         <GridActors url={"movie"} identifier={id ? id.toString() : null} option={["credits"]} useRelated={false} />
                     </div>
                     <div>

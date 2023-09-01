@@ -22,10 +22,10 @@ const GridActors:React.FC<IProp> = ({url, identifier, option}) => {
     return(
         <div>
             { actors?.isError ? <FetchError /> : null }
-            <div className="flex overflow-x-auto gap-x-6">
+            <div className="flex overflow-x-auto gap-x-6 mb-8">
                 { actors && actors.cast.slice(0, 20).map(actor => (
-                    <div key={actor.id+actor.character!} className="flex flex-col  gap-4 items-center">
-                        <ImageAvatar data={actor} displayData={true} size={"28"}/>
+                    <div key={actor.id+actor.character!} className="flex flex-col gap-4 items-center">
+                        <ImageAvatar data={actor} displayData={true} />
                     </div>
                 ))}
             </div>

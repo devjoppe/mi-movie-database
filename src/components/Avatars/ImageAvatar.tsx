@@ -6,18 +6,17 @@ import {useNavigate} from "react-router-dom";
 
 interface IProp {
     data: imageAvtarInt,
-    displayData: boolean,
-    size: string
+    displayData: boolean
 }
 
-const ImageAvatar:React.FC<IProp> = ({data, displayData, size}) => {
+const ImageAvatar:React.FC<IProp> = ({data, displayData}) => {
 
     const navigate = useNavigate()
 
     return(
         <div>
             <Avatar
-                className={`w-${size} h-${size} text-large`}
+                className={`text-large md-avatars-list`}
                 name={data.name}
                 src={`https://image.tmdb.org/t/p/w300${data.profile_path}`}
                 showFallback
@@ -27,9 +26,9 @@ const ImageAvatar:React.FC<IProp> = ({data, displayData, size}) => {
                 onClick={() => navigate("/actor/"+data.id)}
             />
             { displayData && (
-                <div>
-                    <span>{data.name}</span>
-                    <span>{data.character}</span>
+                <div className="flex flex-col w-full items-center text-center">
+                    <span className="font-bold">{data.name}</span>
+                    <span className="text-sm">{data.character}</span>
                 </div>
             )}
         </div>
