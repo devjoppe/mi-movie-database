@@ -27,9 +27,9 @@ const MenuGenres:React.FC<IProp> = ({title}) => {
     }
 
     return(
-        <div>
+        <div className="md-section">
             { genres.isError ? <FetchError /> : null }
-            <h2>{title}</h2>
+            <span className="span-menu-title">{title}</span>
             { genres && <GridButtons data={displayGenres}/> }
             <Button onClick={toggleShowGenres}>{showAllGenres ? "Hide genres" : "Show all genres"}</Button>
         </div>

@@ -14,7 +14,7 @@ const Header = () => {
     }
 
     return (
-        <div className="flex relative justify-between h-16 items-center bg-gray-900 pl-4 pr-4">
+        <div className="flex relative justify-between h-16 items-center bg-gray-900 pl-4 pr-4 xl:container">
             <div><Link to="/"><img className="w-8 h-8" src={logo} alt="MD Logo"/></Link></div>
             <div>
                 <Button isIconOnly onClick={handleVisible}><FaSearch /></Button>

@@ -27,7 +27,7 @@ const GridMovies:React.FC<IProp> = ({url, identifier, option, useRelated}) => {
     }, [getMovies]);
 
     return(
-        <div className="relative">
+        <div className="relative md-section">
             { movies && movies.isError ? <FetchError /> : null }
             { movies &&
                 <div className="flex flex-row overflow-x-auto gap-x-6">

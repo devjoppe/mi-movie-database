@@ -15,15 +15,15 @@ import GenreMenu from "./components/Menus/GenreMenu.tsx";
 function App() {
   return (
       <>
-          <div className="w-full">
+          <div className="w-full bg-gray-900 flex flex-col items-center">
               <Header />
-              <div className="h-1 bg-gray-800">
+              <div className="h-1 bg-gray-800 w-full">
                   <GlobalLoading />
               </div>
           </div>
           <div className="container lg">
               <GenreMenu />
-              <div className="container pl-4 pr-4">
+              <div className="container p-4 pt-8">
                   <Routes>
                       <Route path="/" element={<PageStart />} />
                       <Route path="/movies/:genres" element={<PageGenres />} />

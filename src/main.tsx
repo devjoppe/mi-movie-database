@@ -5,6 +5,7 @@ import App from './App.tsx'
 import { NextUIProvider } from "@nextui-org/react";
 import './assets/styles/index.css'
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import './assets/styles/mdstyles.css'
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -21,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>
                 <NextUIProvider>
-                    <main className="dark text-foreground bg-background h-full">
+                    <main className="dark text-foreground bg-slate-900 h-full flex flex-col items-center">
                         <App />
                     </main>
                 </NextUIProvider>
