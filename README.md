@@ -1,5 +1,7 @@
 # Movie database
 
+![Project header](public/screenshots/prj-header.png)
+
 This is an assignment project in an in-depth JavaScript course. Generally speaking, I was tasked with creating a version of a movie database application that meets the requirements a user would expect when visiting a similar service. The solution is built with React, React Query, and Axios. As for the API, the application uses The Movie Database (TMDb) API (https://www.themoviedb.org/). The challenge here was to reuse my components as much as possible. For more information, please check out the "Documentation" section further down in this README file.
 
 ## The solution
@@ -14,9 +16,6 @@ Checkout the solution:
 - [Vite](https://vitejs.dev/) - Frontend tooling
 - [TMDb](https://wwwthemoviedb.org/) - API
 - [Tanstack React Query](https://tanstack.com/query/v3/) - State management
-
-## Screenshots
-![Project header](public/screenshots/prj-header.png)
 
 # Documentation
 
@@ -48,7 +47,6 @@ GridMovies uses 4 properties:``url``  ``identifier`` ``option`` ``useRelated``
 ``Option: string[]`` : (Optional) Is being used to construct endpoint
 
 ``useRelated: boolean`` : This is used for selecting between endpoints that are specific and endpoints with a general fetch request.
-
 
 ## 📦 Components
 ### Description
