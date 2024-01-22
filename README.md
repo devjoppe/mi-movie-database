@@ -1,4 +1,22 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/3xRw79B0)
+# Movie database
+
+This is an assignment project in an in-depth JavaScript course. Generally speaking, I was tasked with creating a version of a movie database application that meets the requirements a user would expect when visiting a similar service. The solution is built with React, React Query, and Axios. As for the API, the application uses The Movie Database (TMDb) API (https://www.themoviedb.org/). The challenge here was to reuse my components as much as possible. For more information, please check out the "Documentation" section further down in this README file.
+
+## The solution
+
+Checkout the solution:
+
+**⭐ Solution URL:** [https://mi-mbmovie.netlify.app/](https://mi-mbmovie.netlify.app/)
+
+## Built with
+
+- [React](https://reactjs.org/) - JS library
+- [Vite](https://vitejs.dev/) - Frontend tooling
+- [TMDb](https://wwwthemoviedb.org/) - API
+- [Tanstack React Query](https://tanstack.com/query/v3/) - State management
+
+## Screenshots
+![Project header](public/screenshots/prj-header.png)
 
 # Documentation
 
